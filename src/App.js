@@ -23,7 +23,6 @@ function App() {
           <Route path="/" element={<VideoListing />} />
           <Route path="/singleVideo" element={<SingleVideo />} />
           <Route path="/playlist" element={<Playlist />} />
-          <Route path="/playlist" element={<Playlist />} />
           <Route path="/playlist/playlistList" element={<PlaylistList />} />
           <Route path="/liked" element={<Liked />} />
           <Route path="/watchLater" element={<WatchLater />} />
