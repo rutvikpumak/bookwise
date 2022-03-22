@@ -1,0 +1,88 @@
+.play-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 4rem;
+    margin-left: 250px;
+}
+
+.video-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem
+}
+
+.footer-title {
+    letter-spacing: 1px;
+    line-height: 2rem;
+}
+
+.footer-btn-list {
+    display: flex;
+}
+
+.footer-btn-list div {
+    margin-right: 2rem;
+    font-weight: var(--font-semiBold);
+    font-size: 1rem;
+    color: var(--font-color);
+    background-color: var(--menu-hover-color);
+    padding: 0.4rem 1rem;
+    border-radius: var(--border-lg);
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.footer-btn-list div:hover {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+.footer-btn-list div .fa{
+    margin-right: 0.5rem;
+}
+.footer-description {
+    margin-bottom: 2rem;
+    line-height: 2rem;
+}
+
+@media screen and (max-width: 950px) {
+
+    .trans-on {
+        left: 0;
+        transition: left 0.5s ease-out;
+    }
+
+    .trans-off {
+        left: -30.875rem;
+        transition: left 0.5s ease-out;
+    }
+
+    .play-container {
+        margin-left: 0rem;
+        z-index: 2;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .play-container {
+        padding: 1rem;
+    }
+
+    .footer-btn-list {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .footer-btn-list div {
+        padding: 0.5rem 0.7rem;
+        font-size: 0.7rem;
+        margin-right: 0;
+        cursor:default
+    }
+
+    .footer-title {
+        font-size: 0.8rem;
+    }
+}

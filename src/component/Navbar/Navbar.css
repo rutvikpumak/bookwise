@@ -1,0 +1,98 @@
+/* Navbar Styles */
+.navbar {
+    flex-direction: column;
+    background: var(--nav-color);
+}
+
+.navbar-left h2 {
+    letter-spacing: 1px;
+    margin-left: 0.5rem;
+}
+
+.logo {
+    height: 40px;
+}
+
+.navbar-main {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 1rem
+}
+
+.login {
+    cursor: pointer;
+    font-size: 1.8rem;
+}
+
+.login:hover {
+    color: var(--primary-color)
+}
+
+/* Search Bar */
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: var(--menu-hover-color);
+    padding: 0.5rem 0.9rem;
+    gap: 1rem;
+    width: 25%;
+    overflow: auto;
+    border-radius: var(--border-md);
+    color: var(--font-color);
+}
+
+.search-bar {
+    outline: none;
+    border: none;
+    width: 100%;
+    font-size: 1rem;
+    color: var(--font-color);
+    background-color: var(--menu-hover-color);
+}
+
+.search-bar::placeholder {
+    background-color: var(--menu-hover-color);
+    font-weight: var(--font-light);
+    color: var(--font-color);
+}
+
+.nav-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+@media screen and (max-width:500px) {
+
+    .login {
+        font-size: 1.2rem;
+        cursor: default
+    }
+
+    .navbar {
+        justify-content: space-between;
+        padding: 0.8rem 0.1rem;
+        gap: 1rem
+    }
+
+    .search-container {
+        display: none;
+    }
+
+    .search-mob {
+        display: flex;
+        width: 92%;
+    }
+
+    .logo {
+        height: 30px;
+    }
+}
+
+@media screen and (min-width:500px) {
+    .search-mob {
+        display: none
+    }
+}
