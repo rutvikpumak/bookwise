@@ -69,6 +69,7 @@
 @media screen and (max-width:500px) {
     .play-container {
         padding: 1rem;
+        width: 100%;
     }
 
     .footer-btn-list {

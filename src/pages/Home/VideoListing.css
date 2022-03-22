@@ -1,5 +1,4 @@
 .video-list-container {
-    width: calc(100%-230px);
     background-color: var(--bg-color);
     display: flex;
     flex-direction: column;
