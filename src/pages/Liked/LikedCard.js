@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import "./VideoCard.css";
 import { Link } from "react-router-dom";
+import "./Liked.css";
 
-export default function VideoCard() {
+export function LikedCard() {
   const [showList, setShowList] = useState(false);
-
   return (
     <div className="card">
       <Link to="singleVideo">
@@ -32,12 +31,16 @@ export default function VideoCard() {
                 <i className="fa fa-play-circle" aria-hidden="true"></i>
                 Add to Playlist
               </div>
+              <div>
+                <i className="fa fa-trash" aria-hidden="true"></i>
+                Remove from Liked Videos
+              </div>
             </div>
           </div>
         </div>
 
         <div className="card-description">
-          <h3>Ankur Warikoo : 475749view</h3>
+          <h3>Ankur Warikoo : 475749 view</h3>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 /* Navbar Styles */
 .navbar {
     flex-direction: column;
-    background: var(--nav-color);
+    background: var(--navbar-color);
 }
 
 .navbar-left h2 {
@@ -34,7 +34,7 @@
 .search-container {
     display: flex;
     align-items: center;
-    background-color: var(--menu-hover-color);
+    background-color: var(--container-color-dark);
     padding: 0.5rem 0.9rem;
     gap: 1rem;
     width: 25%;
@@ -49,11 +49,11 @@
     width: 100%;
     font-size: 1rem;
     color: var(--font-color);
-    background-color: var(--menu-hover-color);
+    background-color: var(--container-color-dark);
 }
 
 .search-bar::placeholder {
-    background-color: var(--menu-hover-color);
+    background-color: var(--container-color-dark);
     font-weight: var(--font-light);
     color: var(--font-color);
 }

@@ -27,7 +27,7 @@
     font-weight: var(--font-semiBold);
     font-size: 1rem;
     color: var(--font-color);
-    background-color: var(--menu-hover-color);
+    background-color: var(--container-color-dark);
     padding: 0.4rem 1rem;
     border-radius: var(--border-lg);
     margin-right: 1rem;

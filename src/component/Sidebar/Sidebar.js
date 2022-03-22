@@ -31,7 +31,7 @@ export function Sidebar() {
 
         <li>
           <NavLink
-            to="/playlist"
+            to="/liked"
             className={({ isActive }) =>
               isActive ? "sidebar-option active" : "sidebar-option"
             }
@@ -42,7 +42,7 @@ export function Sidebar() {
 
         <li>
           <NavLink
-            to="/playlist"
+            to="/watchLater"
             className={({ isActive }) =>
               isActive ? "sidebar-option active" : "sidebar-option"
             }
@@ -52,7 +52,7 @@ export function Sidebar() {
         </li>
         <li>
           <NavLink
-            to="/playlist"
+            to="/history"
             className={({ isActive }) =>
               isActive ? "sidebar-option active" : "sidebar-option"
             }

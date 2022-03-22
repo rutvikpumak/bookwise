@@ -8,12 +8,11 @@
 
 :root {
     --font-color: #e8e6e3;
-    --font-color-2: #b2aca2;
     --bg-color: #141319;
-    --nav-color: #191921;
-    --nav-hover-color: #23232e;
-    --menu-color: #222230;
-    --menu-hover-color: #34343d;
+    --navbar-color: #191921;
+    --navbar-color-dark: #23232e;
+    --container-color: #222230;
+    --container-color-dark: #34343d;
     --primary-color:#d3931c;
     color: var(--font-color)
 }
