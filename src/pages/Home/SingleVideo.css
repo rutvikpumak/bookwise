@@ -1,5 +1,4 @@
 .play-container {
-    width: calc(100%-230px);
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -69,7 +68,6 @@
 @media screen and (max-width:500px) {
     .play-container {
         padding: 1rem;
-        width: 100%;
     }
 
     .footer-btn-list {
@@ -84,4 +82,7 @@
         cursor:default
     }
 
+    .footer-title {
+        font-size: 0.8rem;
+    }
 }

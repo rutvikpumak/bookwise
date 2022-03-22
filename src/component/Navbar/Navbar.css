@@ -8,9 +8,11 @@
     letter-spacing: 1px;
     margin-left: 0.5rem;
 }
-.logo{
+
+.logo {
     height: 40px;
 }
+
 .navbar-main {
     display: flex;
     align-items: center;
@@ -25,7 +27,7 @@
 }
 
 .login:hover {
-    color:var(--primary-color)
+    color: var(--primary-color)
 }
 
 /* Search Bar */
@@ -66,12 +68,12 @@
 
     .login {
         font-size: 1.2rem;
-        cursor:default
+        cursor: default
     }
 
     .navbar {
         justify-content: space-between;
-        padding: 0.8rem 1rem;
+        padding: 0.8rem 0.1rem;
         gap: 1rem
     }
 
@@ -81,10 +83,10 @@
 
     .search-mob {
         display: flex;
-        width: 90%;
+        width: 92%;
     }
 
-    .logo{
+    .logo {
         height: 30px;
     }
 }
