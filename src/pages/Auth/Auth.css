@@ -1,0 +1,123 @@
+.auth-container {
+    flex-grow: 1;
+    flex-direction: column;
+    height: calc(100vh - 72px);
+}
+
+.auth-main-container {
+    flex-direction: column;
+    width: 25rem;
+    padding: 2rem;
+    gap: 2rem;
+    box-shadow: #d3931c 0px 0px 9px 1px;
+}
+
+.auth-main,
+.auth-checkbox,
+.first-last-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.3rem;
+    font-size: 0.8rem;
+}
+
+.auth-main-container input {
+    border-radius: var(--border-sm);
+    font-size: 0.9rem;
+    padding: 0.4rem 1rem;
+    cursor: pointer;
+    color: var(--font-color);
+    background: var(--navbar-color-dark);
+}
+
+.auth-main-container input:hover,
+.auth-main-container input:focus {
+    border: 2px solid var(--primary-color);
+}
+
+.checkbox-input {
+    accent-color: var(--primary-color);
+}
+
+.auth-main-container input::placeholder {
+    font-size: 0.9rem;
+}
+
+.auth-email,
+.auth-pwd,
+.auth-firstname,
+.auth-lastname {
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-checkbox {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.1rem
+}
+
+.auth-checkbox label {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    cursor: pointer;
+}
+
+.auth-checkbox a {
+    color: var(--primary-color);
+    margin-left: 1rem;
+}
+
+.auth-primary-btn {
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 0.5rem 0;
+}
+
+.auth-primary-btn a {
+    color: var(--white);
+    background: var(--primary-color);
+}
+
+.auth-secondary-btn {
+    cursor: pointer;
+    margin-top: 1rem;
+    
+}
+
+.auth-secondary-btn a {
+    font-size: 1rem;
+    color: var(--black);
+}
+
+.auth-main label {
+    margin-bottom: 0.5rem;
+}
+
+.first-last-wrapper {
+    flex-direction: row;
+    gap: 0.5rem
+}
+
+.first-last-wrapper .text-input {
+    width: 100%;
+}
+
+@media screen and (max-width:500px) {
+    .auth-container {
+        height: calc(100vh - 10rem);
+    }
+
+    .auth-main-container {
+        width: 20rem;
+        padding: 1rem;
+    }
+
+    .auth-main {
+        gap: 1rem
+    }
+}

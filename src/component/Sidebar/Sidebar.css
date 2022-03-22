@@ -8,7 +8,7 @@
     left: 0;
     overflow-y: auto;
     z-index: 5;
-    background-color: var(--nav-color);
+    background-color: var(--navbar-color);
 }
 
 .sidebar-option {
@@ -20,11 +20,11 @@
 
 .active,
 .sidebar-option:hover {
-    background-color: var(--menu-hover-color);
+    background-color: var(--container-color-dark);
 }
 
 .inactive {
-    background-color: var(--nav-color);
+    background-color: var(--navbar-color);
 }
 
 

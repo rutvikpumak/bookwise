@@ -1,6 +1,8 @@
 import React from "react";
 import "./Navbar.css";
+import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
+
 export function Navbar() {
   return (
     <div className="nav-header">
@@ -22,7 +24,9 @@ export function Navbar() {
           </div>
           <ul className="navbar-right">
             <li className="login">
-              <i className="fa fa-user-circle-o" aria-hidden="true"></i>
+              <Link to="login">
+                <i className="fa fa-user-circle-o" aria-hidden="true"></i>
+              </Link>
             </li>
           </ul>
         </div>

@@ -1,0 +1,22 @@
+.card-img,
+.card {
+    border-radius: 0;
+    position: relative;
+}
+.card-title-header{
+    background-color: var(--bg-color);
+    border: none;
+    outline: none;
+    color: var(--font-color);
+}
+.card-highlight {
+    font-size: 1.5rem;
+    background-color: var(--bg-color);
+    height: 100%;
+    width: 40%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    opacity: 0.9;
+    gap:1rem
+}
