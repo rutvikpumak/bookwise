@@ -18,9 +18,8 @@
     color: var(--white);
 }
 
-
-.default {
-    background-color: var(--darkBlue);
+.active-category {
+    background-color: var(--primary-color);
 }
 
 
@@ -31,7 +30,8 @@
     }
 
     .category {
-        font-size: 0.7rem;
+        flex-wrap: wrap;
+        font-size: 0.5rem;
         padding: 0.4rem 0.5rem;
         cursor: default
     }

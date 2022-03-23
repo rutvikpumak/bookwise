@@ -35,6 +35,9 @@
 
 .card-title-header {
     font-size: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .card-info {
@@ -92,6 +95,7 @@
     .video-list-container {
         margin-left: 0rem;
         z-index: 2;
+        padding:2rem 1rem
     }
 
     .responsive-grid {
@@ -123,5 +127,7 @@
     .card-description {
         font-size: 0.5rem;
     }
-
+    .responsive-grid {
+        grid-gap: 3rem;
+    }
 }

@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
+import { useData } from "../../context/data/videoContext";
+import { ACTION_TYPE } from "../../utils";
 
 export function Navbar() {
+  const [input, setInput] = useState("");
+  const { dispatch } = useData();
+  const searchHandler = (e) => {
+    if (e.key === "Enter" || e.keyCode === 8 || e.target.value === "")
+      dispatch({
+        type: ACTION_TYPE.SEARCH,
+        payload: e.target.value,
+      });
+  };
+
   return (
     <div className="nav-header">
       <ul className="navbar">
@@ -18,8 +30,10 @@ export function Navbar() {
               type="text"
               name="search"
               className="search-bar"
-              placeholder="Search for video"
-              id=""
+              value={input}
+              placeholder="Search for Videos"
+              onKeyDown={(e) => searchHandler(e)}
+              onChange={(e) => setInput(e.target.value)}
             />
           </div>
           <ul className="navbar-right">
@@ -36,8 +50,10 @@ export function Navbar() {
             type="text"
             name="search"
             className="search-bar"
-            placeholder="Search for product"
-            id=""
+            value={input}
+            placeholder="Search for Videos"
+            onKeyDown={(e) => searchHandler(e)}
+            onChange={(e) => setInput(e.target.value)}
           />
         </div>
       </ul>
