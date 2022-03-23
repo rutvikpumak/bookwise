@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
 import { DataProvider } from "./context/data/videoContext";
+import { AuthProvider } from "./context/auth/authContext";
 
 // Call make Server
 makeServer();
@@ -11,7 +12,9 @@ makeServer();
 ReactDOM.render(
   <React.StrictMode>
     <DataProvider>
-      <App />
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </DataProvider>
   </React.StrictMode>,
   document.getElementById("root")

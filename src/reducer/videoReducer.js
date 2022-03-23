@@ -33,5 +33,9 @@ export const videoReducer = (state, action) => {
         ...state,
         search: action.payload,
       };
+    case ACTION_TYPE.LOG_OUT:
+      return {
+        ...state,
+      };
   }
 };
