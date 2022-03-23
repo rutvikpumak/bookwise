@@ -1,7 +1,8 @@
-.card-img,
-.card {
-    border-radius: 0;
+.card-img {
     position: relative;
+}
+.playlistFolder{
+    border-radius: 0;
 }
 .card-title-header{
     background-color: var(--bg-color);

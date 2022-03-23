@@ -1,7 +1,7 @@
 import React from "react";
 import PlaylistCard from "./PlaylistCard";
 
-export default function PlaylistList() {
+export function PlaylistList() {
   return (
     <div className="video-list-container">
       <div className="container-title">

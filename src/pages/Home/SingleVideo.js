@@ -1,48 +1,53 @@
 import React from "react";
+import { useParams } from "react-router-dom";
+import { useData } from "../../context/data/videoContext";
 import "./SingleVideo.css";
 
 export function SingleVideo() {
-  return (
-    <div class="play-container">
+  const { videoId } = useParams();
+  const { videos } = useData();
+
+  const video = videos?.find((video) => video._id === videoId);
+  return video ? (
+    <div className="play-container">
       <iframe
         width="100%"
         height="100%"
-        src="https://www.youtube.com/embed/CmcmxPXyDuM"
+        src={`https://www.youtube.com/embed/${video._id}`}
         title="YouTube video player"
-        frameborder="0"
+        frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen=""
+        allowFullScreen=""
       ></iframe>
-      <div class="video-footer">
-        <div class="footer-title">
-          <h2>Do Epic Shit Review</h2>
-          <h5>Ankur Warikoo</h5>
+      <div className="video-footer">
+        <div className="footer-title">
+          <h2>{video.title}</h2>
+          <h5>{video.creator}</h5>
         </div>
 
-        <div class="footer-btn-list">
+        <div className="footer-btn-list">
           <div>
-            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+            <i className="fa fa-thumbs-o-up" aria-hidden="true"></i>
             <span>Like</span>
           </div>
           <div>
-            <i class="fa fa-play-circle" aria-hidden="true"></i>
+            <i className="fa fa-play-circle" aria-hidden="true"></i>
             <span>Save</span>
           </div>
           <div>
-            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <i className="fa fa-clock-o" aria-hidden="true"></i>
             <span>Watch Later</span>
           </div>
         </div>
-        <div class="footer-description">
+        <div className="footer-description">
           <h4>Description :</h4>
           <div>
-            <p>
-              In this video, I will share with you my review of my most gifted
-              book of 2021: Atomic Habits.
-            </p>
+            <p>{video.description}</p>
           </div>
         </div>
       </div>
     </div>
+  ) : (
+    <></>
   );
 }

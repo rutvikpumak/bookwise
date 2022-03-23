@@ -1,5 +1,7 @@
 import "./App.css";
 import { Navbar, Sidebar } from "./component";
+import Mockman from "mockman-js";
+
 import {
   History,
   Liked,
@@ -9,9 +11,9 @@ import {
   SingleVideo,
   VideoListing,
   WatchLater,
+  PlaylistList,
 } from "./pages";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import PlaylistList from "./pages/Playlist/component/PlaylistList";
 
 function App() {
   return (
@@ -20,8 +22,9 @@ function App() {
         <Navbar />
         <Sidebar />
         <Routes>
+          {/* <Route path="/mockman" element={<Mockman />} /> */}
           <Route path="/" element={<VideoListing />} />
-          <Route path="/singleVideo" element={<SingleVideo />} />
+          <Route path="/:videoId" element={<SingleVideo />} />
           <Route path="/playlist" element={<Playlist />} />
           <Route path="/playlist/playlistList" element={<PlaylistList />} />
           <Route path="/liked" element={<Liked />} />
