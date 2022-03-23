@@ -24,7 +24,14 @@ const DataProvider = ({ children }) => {
           type: ACTION_TYPE.INIT_CATEGORIES,
           payload: [...categories],
         });
-
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, []);
+  useEffect(() => {
+    (async () => {
+      try {
         const {
           data: { videos },
         } = await axios.get("/api/videos");
