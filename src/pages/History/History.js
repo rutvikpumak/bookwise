@@ -19,7 +19,7 @@ export function History() {
       <div className="container-title">
         <h3>History</h3>
         {isHistoryFill && (
-          <div className="container-title-header">
+          <div className="container-title-header wd-inherit">
             <span>({history.length} videos) </span>
             <button
               className="btn danger btn-clear"

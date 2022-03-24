@@ -4,19 +4,23 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../../context/auth/authContext";
 import { useData } from "../../../context/data/videoContext";
 import { addToHistory } from "../../../services";
+import { watchLaterHandler } from "../../../utils";
 
 export default function VideoCard({ video }) {
   const navigate = useNavigate();
   const { token } = useAuth();
   const { dispatch } = useData();
   const [showList, setShowList] = useState(false);
-  const { _id, title, creator, isInHistory } = video;
+  const { _id, title, creator, isInHistory, isInWatchLater } = video;
 
   const clickToVideoHandler = () => {
     navigate(`/${_id}`);
     token && !isInHistory && addToHistory(dispatch, video, token);
   };
 
+  const addToWatchLater = () => {
+    token ? watchLaterHandler(dispatch, video, token) : navigate("login");
+  };
   return (
     <div className="card">
       <img
@@ -34,9 +38,17 @@ export default function VideoCard({ video }) {
                 showList ? "display-flex" : "display-none"
               }`}
             >
-              <div>
-                <i className="fa fa-clock-o" aria-hidden="true"></i>
-                Add to Watch Later
+              <div
+                className={`${isInWatchLater && "btn-trash"}`}
+                onClick={() => addToWatchLater()}
+              >
+                <i
+                  className={`fa ${isInWatchLater ? "fa-trash" : "fa-clock-o"}`}
+                  aria-hidden="true"
+                ></i>
+                {isInWatchLater
+                  ? "Remove from Watch Later"
+                  : "Add to Watch Later"}
               </div>
               <div>
                 <i className="fa fa-play-circle" aria-hidden="true"></i>

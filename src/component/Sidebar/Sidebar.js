@@ -44,7 +44,7 @@ export function Sidebar() {
 
         <li>
           <NavLink
-            to="/watchLater"
+            to={token ? "/watchLater" : "login"}
             className={({ isActive }) =>
               isActive ? "sidebar-option active" : "sidebar-option"
             }
