@@ -1,17 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./VideoCard.css";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../../context/auth/authContext";
+import { useData } from "../../../context/data/videoContext";
+import { addToHistory } from "../../../services";
 
 export default function VideoCard({ video }) {
   const navigate = useNavigate();
+  const { token } = useAuth();
+  const { dispatch, history } = useData();
   const [showList, setShowList] = useState(false);
   const { _id, title, creator } = video;
+
+  const isInHistory = history.find((historyVideo) => historyVideo._id === _id);
+
+  const clickToVideoHandler = () => {
+    navigate(`/${_id}`);
+    token && !isInHistory && addToHistory(dispatch, video, token);
+  };
   return (
     <div className="card">
       <img
         className="card-img"
         src={`https://i.ytimg.com/vi/${_id}/0.jpg`}
-        onClick={() => navigate(`/${_id}`)}
+        onClick={() => clickToVideoHandler()}
       />
       <div className="card-info" title={title}>
         <div className="card-title">

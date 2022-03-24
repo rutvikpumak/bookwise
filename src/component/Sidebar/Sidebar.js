@@ -1,8 +1,10 @@
 import "./Sidebar.css";
 import React from "react";
-import { NavLink } from "react-router-dom";
-
+import { NavLink, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/auth/authContext";
 export function Sidebar() {
+  const { token } = useAuth();
+  const navigate = useNavigate();
   return (
     <div className="sidebar-container trans-off">
       <ul>
@@ -52,7 +54,7 @@ export function Sidebar() {
         </li>
         <li>
           <NavLink
-            to="/history"
+            to={token ? "/history" : "login"}
             className={({ isActive }) =>
               isActive ? "sidebar-option active" : "sidebar-option"
             }

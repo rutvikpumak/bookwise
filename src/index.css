@@ -14,6 +14,7 @@
     --container-color: #222230;
     --container-color-dark: #34343d;
     --primary-color:#d3931c;
+    --danger-color:#e76464;
     color: var(--font-color)
 }
 
