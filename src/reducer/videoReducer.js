@@ -5,17 +5,24 @@ export const initialState = {
   category: [],
   sortBy: "",
   search: "",
+  history: [],
 };
 
 export const videoReducer = (state, action) => {
   switch (action.type) {
     case ACTION_TYPE.INIT_VIDEOS:
-      return { ...state, videos: action.payload };
+      return {
+        ...state,
+        videos: action.payload,
+      };
     case ACTION_TYPE.INIT_CATEGORIES:
       return {
         ...state,
         category: [
-          ...action.payload.map((cat) => ({ ...cat, isActive: false })),
+          ...action.payload.map((cat) => ({
+            ...cat,
+            isActive: false,
+          })),
         ],
       };
     case ACTION_TYPE.SORT_BY:
@@ -24,9 +31,30 @@ export const videoReducer = (state, action) => {
         sortBy: action.payload,
         category: state.category.map((cat) =>
           cat.categoryName === action.payload
-            ? { ...cat, isActive: true }
-            : { ...cat, isActive: false }
+            ? {
+                ...cat,
+                isActive: true,
+              }
+            : {
+                ...cat,
+                isActive: false,
+              }
         ),
+      };
+    case ACTION_TYPE.ADD_TO_HISTORY:
+      return {
+        ...state,
+        history: [...action.payload],
+      };
+    case ACTION_TYPE.REMOVE_FROM_HISTORY:
+      return {
+        ...state,
+        history: [...action.payload],
+      };
+    case ACTION_TYPE.CLEAR_HISTORY:
+      return {
+        ...state,
+        history: [...action.payload],
       };
     case ACTION_TYPE.SEARCH:
       return {
@@ -36,6 +64,7 @@ export const videoReducer = (state, action) => {
     case ACTION_TYPE.LOG_OUT:
       return {
         ...state,
+        // history: [],
       };
   }
 };

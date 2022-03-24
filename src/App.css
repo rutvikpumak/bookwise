@@ -71,7 +71,7 @@
     background: var(--container-color-dark);
 }
 
-.option-list div .fa {
+.fa {
     margin-right: 5px;
 }
 
@@ -89,6 +89,31 @@
     grid-gap: 3rem;
 }
 
+.message-container {
+    flex-direction: column;
+    height: calc(100vh - 144px);
+    gap: 1rem
+}
+
+.btn-start-watch {
+    background: var(--primary-color);
+}
+
+.btn-trash {
+    color: var(--danger-color)
+}
+
+.btn-clear {
+    padding: 5px 10px
+}
+
+.container-title-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
 @media screen and (max-width: 1450px) {
     .card {
         width: 20rem;
@@ -100,7 +125,7 @@
     .video-list-container {
         margin-left: 0rem;
         z-index: 2;
-        padding:2rem 1rem
+        padding: 2rem 1rem
     }
 
     .responsive-grid {
@@ -114,6 +139,10 @@
         align-items: center;
         padding: 1rem;
         width: 100%;
+    }
+
+    .container-title {
+        width: 90%;
     }
 
     .card {
@@ -134,5 +163,18 @@
     }
     .responsive-grid {
         grid-gap: 3rem;
+    }
+
+    .btn-clear {
+        padding: 0px 3px;
+        font-size: 15px;
+    }
+
+    .btn-clear .fa {
+        margin-right: 0;
+    }
+
+    .btn-clear span {
+        display: none;
     }
 }

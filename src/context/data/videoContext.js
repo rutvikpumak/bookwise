@@ -53,6 +53,7 @@ const DataProvider = ({ children }) => {
         sortBy: state.sortBy,
         dispatch: dispatch,
         search: state.search,
+        history: state.history,
       }}
     >
       {children}
