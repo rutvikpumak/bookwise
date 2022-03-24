@@ -8,16 +8,15 @@ import { addToHistory } from "../../../services";
 export default function VideoCard({ video }) {
   const navigate = useNavigate();
   const { token } = useAuth();
-  const { dispatch, history } = useData();
+  const { dispatch } = useData();
   const [showList, setShowList] = useState(false);
-  const { _id, title, creator } = video;
-
-  const isInHistory = history.find((historyVideo) => historyVideo._id === _id);
+  const { _id, title, creator, isInHistory } = video;
 
   const clickToVideoHandler = () => {
     navigate(`/${_id}`);
     token && !isInHistory && addToHistory(dispatch, video, token);
   };
+
   return (
     <div className="card">
       <img

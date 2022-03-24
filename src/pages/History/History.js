@@ -7,10 +7,12 @@ import { clearHistory } from "../../services";
 import { useAuth } from "../../context/auth/authContext";
 
 export function History() {
-  const { history, dispatch } = useData();
+  const { dispatch, videos } = useData();
   const { token } = useAuth();
-  const isHistoryFill = history.length > 0;
   const navigate = useNavigate();
+
+  const history = videos.filter((video) => video.isInHistory);
+  const isHistoryFill = history.length > 0;
 
   return (
     <div className="video-list-container">

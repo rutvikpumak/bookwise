@@ -4,8 +4,7 @@ export const initialState = {
   videos: [],
   category: [],
   sortBy: "",
-  search: "",
-  history: [],
+  search: ""
 };
 
 export const videoReducer = (state, action) => {
@@ -13,7 +12,14 @@ export const videoReducer = (state, action) => {
     case ACTION_TYPE.INIT_VIDEOS:
       return {
         ...state,
-        videos: action.payload,
+        videos: [
+          ...action.payload.map((video) => ({
+            ...video,
+            isInHistory: false,
+            isInWatchLater: false,
+            isInLiked: false,
+          })),
+        ],
       };
     case ACTION_TYPE.INIT_CATEGORIES:
       return {
@@ -41,20 +47,13 @@ export const videoReducer = (state, action) => {
               }
         ),
       };
-    case ACTION_TYPE.ADD_TO_HISTORY:
+    case ACTION_TYPE.HISTORY:
       return {
         ...state,
-        history: [...action.payload],
-      };
-    case ACTION_TYPE.REMOVE_FROM_HISTORY:
-      return {
-        ...state,
-        history: [...action.payload],
-      };
-    case ACTION_TYPE.CLEAR_HISTORY:
-      return {
-        ...state,
-        history: [...action.payload],
+        videos: state.videos.map((video) => ({
+          ...video,
+          isInHistory: action.payload.some((ele) => ele._id === video._id),
+        })),
       };
     case ACTION_TYPE.SEARCH:
       return {
