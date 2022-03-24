@@ -63,6 +63,14 @@ export const videoReducer = (state, action) => {
           isInWatchLater: action.payload.some((ele) => ele._id === video._id),
         })),
       };
+    case ACTION_TYPE.LIKE:
+      return {
+        ...state,
+        videos: state.videos.map((video) => ({
+          ...video,
+          isInLiked: action.payload.some((ele) => ele._id === video._id),
+        })),
+      };
     case ACTION_TYPE.SEARCH:
       return {
         ...state,

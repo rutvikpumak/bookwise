@@ -11,3 +11,4 @@ export {
   removeFromWatchLater,
   clearWatchLater,
 } from "./watchLater/watchLaterService";
+export { addToLike, removeFromLike } from "./like/likeService";

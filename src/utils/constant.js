@@ -7,4 +7,5 @@ export const ACTION_TYPE = {
   LOG_OUT: "LOG_OUT",
   HISTORY: "HISTORY",
   WATCH_LATER: "WATCH_LATER",
+  LIKE: "LIKE",
 };
