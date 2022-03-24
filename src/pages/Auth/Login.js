@@ -1,8 +1,34 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./Auth.css";
+import { useAuth } from "../../context/auth/authContext";
 
 export function Login() {
+  const [loginForm, setLoginForm] = useState({
+    email: "",
+    password: "",
+  });
+  const navigate = useNavigate();
+  const { token, loginUser } = useAuth();
+
+  useEffect(() => {
+    (async () => {
+      loginUser(loginForm.email, loginForm.password);
+    })();
+  }, [loginForm.email, loginForm.password]);
+
+  if (token) {
+    navigate("/");
+  }
+
+  const loginHandler = () => {
+    setLoginForm((form) => ({
+      ...form,
+      email: "rutvikumak@gmail.com",
+      password: "rutvik123",
+    }));
+  };
+
   return (
     <div className="auth-container flex-center">
       <div className="auth-main-container flex-center">
@@ -15,7 +41,11 @@ export function Login() {
             <input
               placeholder="test@gmail.com"
               className="text-input"
-              type="text"
+              type="email"
+              value={loginForm.email}
+              onChange={(e) =>
+                setLoginForm((form) => ({ ...form, email: e.target.value }))
+              }
               required
             />
           </div>
@@ -26,6 +56,10 @@ export function Login() {
               placeholder="***********"
               className="pwd-input"
               type="password"
+              value={loginForm.password}
+              onChange={(e) =>
+                setLoginForm((form) => ({ ...form, password: e.target.value }))
+              }
               required
             />
           </div>
@@ -40,10 +74,13 @@ export function Login() {
               />
               <span className="text">Remember Me</span>
             </label>
-            <a>Forgot your Password?</a>
+            <a onClick={() => navigate("/forgetPwd")}>Forgot your Password?</a>
           </div>
 
-          <div className="auth-primary-btn text-center">
+          <div
+            className="auth-primary-btn text-center"
+            onClick={() => loginHandler()}
+          >
             Login with Test Credentials
           </div>
 

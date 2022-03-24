@@ -12,6 +12,7 @@ import {
   VideoListing,
   WatchLater,
   PlaylistList,
+  UserProfile,
 } from "./pages";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
@@ -32,6 +33,7 @@ function App() {
           <Route path="/history" element={<History />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/userProfile" element={<UserProfile />} />
         </Routes>
       </Router>
     </div>

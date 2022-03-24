@@ -4,4 +4,5 @@ export const ACTION_TYPE = {
   CATEGORY: "CATEGORY",
   SORT_BY: "SORT_BY",
   SEARCH: "SEARCH",
+  LOG_OUT: "LOG_OUT",
 };

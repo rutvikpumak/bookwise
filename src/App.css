@@ -89,6 +89,11 @@
     grid-gap: 3rem;
 }
 
+@media screen and (max-width: 1450px) {
+    .card {
+        width: 20rem;
+    }
+}
 
 @media screen and (max-width: 950px) {
 

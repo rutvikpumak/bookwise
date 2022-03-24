@@ -1,9 +1,36 @@
 import React, { useState } from "react";
 import "./Auth.css";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/auth/authContext";
 
 export function Signup() {
+  const signUpFields = {
+    email: "",
+    password: "",
+    firstName: "",
+    lastName: "",
+  };
+  const [signUpForm, setSignUpForm] = useState(signUpFields);
+  const { token, signUpUser } = useAuth();
   const navigate = useNavigate();
+
+  const signUpHandler = () => {
+    const { email, password, firstName, lastName } = signUpForm;
+    if (email && password && firstName && lastName !== "") {
+      (async () => {
+        signUpUser(email, password, firstName, lastName);
+      })();
+    }
+  };
+
+  const fillFormValue = (event, fieldName) => {
+    const { value } = event.target;
+    setSignUpForm((prev) => ({ ...prev, [fieldName]: value }));
+  };
+
+  if (token) {
+    navigate("/");
+  }
 
   return (
     <div className="auth-container flex-center">
@@ -19,6 +46,8 @@ export function Signup() {
                 placeholder="Test"
                 className="text-input"
                 type="text"
+                value={signUpForm.firstName}
+                onChange={(e) => fillFormValue(e, "firstName")}
                 required
               />
             </div>
@@ -28,6 +57,8 @@ export function Signup() {
                 placeholder="Admin"
                 className="text-input"
                 type="text"
+                value={signUpForm.lastName}
+                onChange={(e) => fillFormValue(e, "lastName")}
                 required
               />
             </div>
@@ -37,7 +68,9 @@ export function Signup() {
             <input
               placeholder="test@gmail.com"
               className="text-input"
-              type="text"
+              type="email"
+              value={signUpForm.email}
+              onChange={(e) => fillFormValue(e, "email")}
               required
             />
           </div>
@@ -47,6 +80,8 @@ export function Signup() {
               placeholder="***********"
               className="pwd-input"
               type="password"
+              value={signUpForm.password}
+              onChange={(e) => fillFormValue(e, "password")}
               required
             />
           </div>
@@ -61,7 +96,12 @@ export function Signup() {
               <span className="text">I accept all Terms & Conditions</span>
             </label>
           </div>
-          <div className="auth-primary-btn text-center">Create New Account</div>
+          <div
+            className="auth-primary-btn text-center"
+            onClick={() => signUpHandler()}
+          >
+            Create New Account
+          </div>
           <Link to="/login">
             <div className="auth-secondary-btn text-center">
               Already have an account{" "}
