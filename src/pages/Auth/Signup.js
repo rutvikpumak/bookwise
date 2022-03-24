@@ -68,7 +68,7 @@ export function Signup() {
             <input
               placeholder="test@gmail.com"
               className="text-input"
-              type="text"
+              type="email"
               value={signUpForm.email}
               onChange={(e) => fillFormValue(e, "email")}
               required

@@ -21,13 +21,13 @@ export function Login() {
     navigate("/");
   }
 
-  const loginHandler=()=> {
+  const loginHandler = () => {
     setLoginForm((form) => ({
       ...form,
       email: "rutvikumak@gmail.com",
       password: "rutvik123",
     }));
-  }
+  };
 
   return (
     <div className="auth-container flex-center">
@@ -41,7 +41,7 @@ export function Login() {
             <input
               placeholder="test@gmail.com"
               className="text-input"
-              type="text"
+              type="email"
               value={loginForm.email}
               onChange={(e) =>
                 setLoginForm((form) => ({ ...form, email: e.target.value }))
