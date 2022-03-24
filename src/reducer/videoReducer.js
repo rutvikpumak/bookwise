@@ -4,7 +4,7 @@ export const initialState = {
   videos: [],
   category: [],
   sortBy: "",
-  search: ""
+  search: "",
 };
 
 export const videoReducer = (state, action) => {
@@ -53,6 +53,14 @@ export const videoReducer = (state, action) => {
         videos: state.videos.map((video) => ({
           ...video,
           isInHistory: action.payload.some((ele) => ele._id === video._id),
+        })),
+      };
+    case ACTION_TYPE.WATCH_LATER:
+      return {
+        ...state,
+        videos: state.videos.map((video) => ({
+          ...video,
+          isInWatchLater: action.payload.some((ele) => ele._id === video._id),
         })),
       };
     case ACTION_TYPE.SEARCH:

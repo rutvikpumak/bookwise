@@ -3,10 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/auth/authContext";
 import { useData } from "../../context/data/videoContext";
 import { removeFromHistory } from "../../services";
+import { watchLaterHandler } from "../../utils";
 
 export function HistoryCard({ video }) {
   const [showList, setShowList] = useState(false);
-  const { _id, title, creator } = video;
+  const { _id, title, creator, isInWatchLater } = video;
   const { dispatch } = useData();
   const { token } = useAuth();
   const navigate = useNavigate();
@@ -29,12 +30,20 @@ export function HistoryCard({ video }) {
               }`}
             >
               <div>
-                <i className="fa fa-clock-o" aria-hidden="true"></i>
-                Add to Watch Later
-              </div>
-              <div>
                 <i className="fa fa-play-circle" aria-hidden="true"></i>
                 Add to Playlist
+              </div>
+              <div
+                className={`${isInWatchLater && "btn-trash"}`}
+                onClick={() => watchLaterHandler(dispatch, video, token)}
+              >
+                <i
+                  className={`fa ${isInWatchLater ? "fa-trash" : "fa-clock-o"}`}
+                  aria-hidden="true"
+                ></i>
+                {isInWatchLater
+                  ? "Remove from Watch Later"
+                  : "Add to Watch Later"}
               </div>
               <div
                 className="btn-trash"

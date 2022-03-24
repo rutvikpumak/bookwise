@@ -54,7 +54,7 @@ export function Sidebar() {
         </li>
         <li>
           <NavLink
-            to={token ? "/history" : "login"}
+            to="/history"
             className={({ isActive }) =>
               isActive ? "sidebar-option active" : "sidebar-option"
             }

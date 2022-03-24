@@ -111,9 +111,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
 }
 
+.wd-inherit{
+    width: 100%;
+}
 @media screen and (max-width: 1450px) {
     .card {
         width: 20rem;

@@ -6,3 +6,8 @@ export {
   removeFromHistory,
   clearHistory,
 } from "./history/historyService";
+export {
+  addToWatchLater,
+  removeFromWatchLater,
+  clearWatchLater,
+} from "./watchLater/watchLaterService";
