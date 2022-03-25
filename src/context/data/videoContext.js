@@ -13,6 +13,8 @@ const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
   const [state, dispatch] = useReducer(videoReducer, initialState);
+  const [modal, setModal] = useState(false);
+  const [modalData, setModelData] = useState({});
 
   useEffect(() => {
     (async () => {
@@ -52,7 +54,12 @@ const DataProvider = ({ children }) => {
         category: state.category,
         sortBy: state.sortBy,
         dispatch: dispatch,
-        search: state.search
+        search: state.search,
+        playlist: state.playlist,
+        modal,
+        setModal,
+        modalData,
+        setModelData,
       }}
     >
       {children}

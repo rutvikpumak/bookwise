@@ -3,6 +3,7 @@ import { ACTION_TYPE } from "../utils";
 export const initialState = {
   videos: [],
   category: [],
+  playlist: [],
   sortBy: "",
   search: "",
 };
@@ -75,6 +76,18 @@ export const videoReducer = (state, action) => {
       return {
         ...state,
         search: action.payload,
+      };
+    case ACTION_TYPE.PLAYLIST:
+      return {
+        ...state,
+        playlist: action.payload,
+      };
+    case ACTION_TYPE.VIDEO_TO_PLAYLIST:
+      return {
+        ...state,
+        playlist: state.playlist.map((list) =>
+          list._id === action.payload._id ? action.payload : list
+        ),
       };
     case ACTION_TYPE.LOG_OUT:
       return {

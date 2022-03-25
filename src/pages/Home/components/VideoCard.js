@@ -9,7 +9,7 @@ import { watchLaterHandler } from "../../../utils";
 export default function VideoCard({ video }) {
   const navigate = useNavigate();
   const { token } = useAuth();
-  const { dispatch } = useData();
+  const { dispatch, setModal, setModelData } = useData();
   const [showList, setShowList] = useState(false);
   const { _id, title, creator, isInHistory, isInWatchLater } = video;
 
@@ -21,6 +21,16 @@ export default function VideoCard({ video }) {
   const addToWatchLater = () => {
     token ? watchLaterHandler(dispatch, video, token) : navigate("login");
   };
+
+  const addToPlaylist = () => {
+    if (token) {
+      setModal(true);
+      setModelData(video);
+    } else {
+      navigate("login");
+    }
+  };
+
   return (
     <div className="card">
       <img
@@ -45,12 +55,12 @@ export default function VideoCard({ video }) {
                 <i
                   className={`fa ${isInWatchLater ? "fa-trash" : "fa-clock-o"}`}
                   aria-hidden="true"
-                ></i>
+                />
                 {isInWatchLater
                   ? "Remove from Watch Later"
                   : "Add to Watch Later"}
               </div>
-              <div>
+              <div onClick={() => addToPlaylist()}>
                 <i className="fa fa-play-circle" aria-hidden="true"></i>
                 Add to Playlist
               </div>

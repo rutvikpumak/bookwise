@@ -1,19 +1,41 @@
 import React from "react";
 import PlaylistFolder from "./component/PlaylistFolder";
-import { Link } from "react-router-dom";
-
 import "./Playlist.css";
+import { useData } from "../../context/data/videoContext";
+import { useNavigate } from "react-router-dom";
 
 export function Playlist() {
+  const { playlist } = useData();
+  const isPlaylistFill = playlist.length > 0;
+  const navigate = useNavigate();
   return (
     <div className="video-list-container">
       <div className="container-title">
-        <h3>Watch Later</h3>
-        <span>2 videos</span>
+        <h3>Your Playlist</h3>
+        {isPlaylistFill && (
+          <div className="container-title-header">
+            <span>({playlist.length} playlists) </span>
+          </div>
+        )}
       </div>
-      <div className="responsive-grid">
-        <PlaylistFolder />
-      </div>
+      {isPlaylistFill ? (
+        <div>
+          <div className="responsive-grid">
+            {playlist.map((listFolder) => (
+              <PlaylistFolder key={listFolder._id} listFolder={listFolder} />
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div className="message-container flex-center">
+          <p className="paragraph-md">
+            Looks like you haven't create playlist.
+          </p>
+          <button className="btn btn-start-watch" onClick={() => navigate("/")}>
+            Start Creating Now
+          </button>
+        </div>
+      )}
     </div>
   );
 }
