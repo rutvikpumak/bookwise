@@ -1,0 +1,26 @@
+.loader-wrapper {
+    background: var(--bg-color);
+    width: calc(100vw - 15.625rem);
+    position: fixed;
+    height: calc(100vh - 4.5rem);
+    z-index: 9999;
+    margin-left: 15.625rem;
+}
+
+.mini-loader-wrapper{
+    width: 100%;
+}
+/* #342e2ebf */
+@media screen and (max-width:500px) {
+    .loader-wrapper {
+        margin-left: 0rem;
+        width: 100%;
+    }
+    .loader{
+        width: 4rem;
+    }
+    .mini-loader{
+        width: 30px;
+    }
+        
+}

@@ -4,7 +4,6 @@
     position: fixed;
     height: 100vh;
     z-index: 9999;
-
 }
 
 .modal {
@@ -18,10 +17,6 @@
 .modal-header {
     display: flex;
     justify-content: space-between;
-}
-
-.modal-input {
-    flex-wrap: wrap;
 }
 
 .select-input-text {
@@ -57,6 +52,10 @@
 
 @media screen and (max-width:500px) {
     .modal {
-        width: 80%
+        width: 80%;
+        gap:0.8rem
+    }
+    .modal-input input{
+        margin-left: 0.2rem;
     }
 }

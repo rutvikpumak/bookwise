@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Auth.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/auth/authContext";
+import { useData } from "../../context/data/videoContext";
 
 export function Signup() {
   const signUpFields = {
@@ -12,6 +13,7 @@ export function Signup() {
   };
   const [signUpForm, setSignUpForm] = useState(signUpFields);
   const { token, signUpUser } = useAuth();
+  const { setLoader } = useData();
   const navigate = useNavigate();
 
   const signUpHandler = () => {
@@ -29,7 +31,11 @@ export function Signup() {
   };
 
   if (token) {
-    navigate("/");
+    setLoader(() => true);
+    setTimeout(() => {
+      navigate("/");
+      setLoader(false);
+    }, 1000);
   }
 
   return (

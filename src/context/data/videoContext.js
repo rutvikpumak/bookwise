@@ -15,6 +15,7 @@ const DataProvider = ({ children }) => {
   const [state, dispatch] = useReducer(videoReducer, initialState);
   const [modal, setModal] = useState(false);
   const [modalData, setModelData] = useState({});
+  const [loader, setLoader] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -60,6 +61,8 @@ const DataProvider = ({ children }) => {
         setModal,
         modalData,
         setModelData,
+        loader,
+        setLoader,
       }}
     >
       {children}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Auth.css";
 import { useAuth } from "../../context/auth/authContext";
+import { useData } from "../../context/data/videoContext";
 
 export function Login() {
   const [loginForm, setLoginForm] = useState({
@@ -10,6 +11,7 @@ export function Login() {
   });
   const navigate = useNavigate();
   const { token, loginUser } = useAuth();
+  const { setLoader } = useData();
 
   useEffect(() => {
     (async () => {
@@ -18,7 +20,11 @@ export function Login() {
   }, [loginForm.email, loginForm.password]);
 
   if (token) {
-    navigate("/");
+    setLoader(true);
+    setTimeout(() => {
+      navigate("/");
+      setLoader(false);
+    }, 1000);
   }
 
   const loginHandler = () => {
@@ -86,7 +92,7 @@ export function Login() {
 
           <Link to="/signup">
             <div className="auth-secondary-btn text-center">
-              Create New Account
+              Create New Account{" "}
               <i className="fa fa-chevron-right" aria-hidden="true"></i>
             </div>
           </Link>

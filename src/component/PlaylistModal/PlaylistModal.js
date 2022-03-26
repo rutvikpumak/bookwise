@@ -7,6 +7,7 @@ import {
   createNewPlaylist,
   removeVideoFromPlaylist,
 } from "../../services";
+import { MiniLoader } from "../Loader/MiniLoader";
 import "./PlaylistModal.css";
 
 export function PlaylistModal() {
@@ -14,6 +15,7 @@ export function PlaylistModal() {
   const [showInput, setShowInput] = useState(false);
   const { token } = useAuth();
   const [playlistName, setPlaylistName] = useState("");
+  const [miniLoader, setMiniLoader] = useState(false);
 
   const createHandler = (e) => {
     setShowInput(true);
@@ -36,7 +38,10 @@ export function PlaylistModal() {
             onClick={() => setModal(!modal)}
           />
         </div>
-        {playlist.length > 0 &&
+        {miniLoader ? (
+          <MiniLoader />
+        ) : (
+          playlist.length > 0 &&
           playlist.map((list) => {
             const isInPlaylist = list.videos?.some(
               (list) => list._id === modalData._id
@@ -55,13 +60,15 @@ export function PlaylistModal() {
                             dispatch,
                             list._id,
                             modalData,
-                            token
+                            token,
+                            setMiniLoader
                           )
                         : removeVideoFromPlaylist(
                             dispatch,
                             list._id,
                             modalData._id,
-                            token
+                            token,
+                            setMiniLoader
                           )
                     }
                   />
@@ -69,7 +76,8 @@ export function PlaylistModal() {
                 </label>
               </div>
             );
-          })}
+          })
+        )}
         <div
           className={`modal-input ${
             showInput ? "display-flex" : "display-none"
