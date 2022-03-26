@@ -1,5 +1,5 @@
 import "./App.css";
-import { Navbar, PlaylistModal, Sidebar } from "./component";
+import { Loader, Navbar, PlaylistModal, Sidebar } from "./component";
 import Mockman from "mockman-js";
 
 import {
@@ -16,14 +16,17 @@ import {
 } from "./pages";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { PrivateRoute } from "./component/PrivateRoute/PrivateRoute";
+import { useData } from "./context/data/videoContext";
 
 function App() {
+  const { loader } = useData();
   return (
     <div className="App">
       <PlaylistModal />
       <Router>
         <Navbar />
         <Sidebar />
+        {loader && <Loader />}
         <Routes>
           <Route path="/" element={<VideoListing />} />
           <Route path="/:videoId" element={<SingleVideo />} />

@@ -6,10 +6,14 @@ import { ACTION_TYPE } from "../../utils";
 import { searchVideos, sortVideos } from "../../services";
 
 export function VideoListing() {
-  const { category, videos, dispatch, sortBy, search } = useData();
+  const { category, videos, dispatch, sortBy, search, setLoader } = useData();
 
   const sortHandler = (catName) => {
-    dispatch({ type: ACTION_TYPE.SORT_BY, payload: catName });
+    setLoader(true);
+    setTimeout(() => {
+      dispatch({ type: ACTION_TYPE.SORT_BY, payload: catName });
+      setLoader(false);
+    }, 500);
   };
 
   const searchByName = searchVideos([...videos], search);
