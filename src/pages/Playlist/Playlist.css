@@ -21,3 +21,8 @@
     opacity: 0.9;
     gap:1rem
 }
+
+.empty{
+    background-image: linear-gradient(to right, #d3cc34 , #eb9200);
+    color:var(--font-color)
+}

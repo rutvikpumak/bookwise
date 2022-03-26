@@ -1,5 +1,5 @@
 import "./App.css";
-import { Navbar, Sidebar } from "./component";
+import { Navbar, PlaylistModal, Sidebar } from "./component";
 import Mockman from "mockman-js";
 
 import {
@@ -20,15 +20,29 @@ import { PrivateRoute } from "./component/PrivateRoute/PrivateRoute";
 function App() {
   return (
     <div className="App">
+      <PlaylistModal />
       <Router>
         <Navbar />
         <Sidebar />
         <Routes>
-          {/* <Route path="/mockman" element={<Mockman />} /> */}
           <Route path="/" element={<VideoListing />} />
           <Route path="/:videoId" element={<SingleVideo />} />
-          <Route path="/playlist" element={<Playlist />} />
-          <Route path="/playlist/playlistList" element={<PlaylistList />} />
+          <Route
+            path="/playlist"
+            element={
+              <PrivateRoute>
+                <Playlist />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/playlist/:playListId"
+            element={
+              <PrivateRoute>
+                <PlaylistList />
+              </PrivateRoute>
+            }
+          />
           <Route
             path="/liked"
             element={

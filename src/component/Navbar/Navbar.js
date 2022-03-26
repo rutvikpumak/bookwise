@@ -49,7 +49,7 @@ export function Navbar() {
                 />
               ) : (
                 <i
-                  class="fa fa-cog"
+                  className="fa fa-cog"
                   aria-hidden="true"
                   onClick={() => navigate("/userProfile")}
                 ></i>
