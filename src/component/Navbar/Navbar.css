@@ -75,11 +75,17 @@
     color:var(--primary-color);
 }
 
+.logo-wrapper{
+    cursor: pointer;
+}
 
 @media screen and (max-width: 950px) {
 
     .drawer-hamberg-btn {
         display: block;
+    }
+    .logo-wrapper{
+        cursor: default;
     }
 }
 

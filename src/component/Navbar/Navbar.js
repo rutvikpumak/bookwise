@@ -29,7 +29,10 @@ export function Navbar() {
               aria-hidden="true"
               onClick={() => setDrawer(!drawer)}
             />
-            <div className="flex-center">
+            <div
+              className="logo-wrapper flex-center"
+              onClick={() => navigate("/")}
+            >
               <img className="logo" src={logo} />
               <h2> Bookwise</h2>
             </div>
