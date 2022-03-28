@@ -2,13 +2,13 @@ import "./Sidebar.css";
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/auth/authContext";
+import { useData } from "../../context/data/videoContext";
 export function Sidebar() {
-  const { token } = useAuth();
-  const navigate = useNavigate();
+  const { drawer, setDrawer } = useData();
   return (
-    <div className="sidebar-container trans-off">
+    <div className={`sidebar-container ${drawer ? "trans-on" : "trans-off"}`}>
       <ul>
-        <li>
+        <li onClick={() => setDrawer(!drawer)}>
           <NavLink
             to="/"
             className={({ isActive }) =>
@@ -20,7 +20,7 @@ export function Sidebar() {
           </NavLink>
         </li>
 
-        <li>
+        <li onClick={() => setDrawer(!drawer)}>
           <NavLink
             to="/playlist"
             className={({ isActive }) =>
@@ -31,7 +31,7 @@ export function Sidebar() {
           </NavLink>
         </li>
 
-        <li>
+        <li onClick={() => setDrawer(!drawer)}>
           <NavLink
             to="/liked"
             className={({ isActive }) =>
@@ -42,7 +42,7 @@ export function Sidebar() {
           </NavLink>
         </li>
 
-        <li>
+        <li onClick={() => setDrawer(!drawer)}>
           <NavLink
             to="/watchLater"
             className={({ isActive }) =>
@@ -52,7 +52,7 @@ export function Sidebar() {
             <i className="fa fa-clock-o" aria-hidden="true"></i>Watch Later
           </NavLink>
         </li>
-        <li>
+        <li onClick={() => setDrawer(!drawer)}>
           <NavLink
             to="/history"
             className={({ isActive }) =>

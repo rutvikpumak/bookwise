@@ -64,13 +64,35 @@
     z-index: 10;
 }
 
+.drawer-hamberg-btn {
+    display: none;
+    font-size: 1.4rem;
+    margin-right: 0.5rem;
+}
+
+.drawer-hamberg-btn:hover{
+    background: none;
+    color:var(--primary-color);
+}
+
+
+@media screen and (max-width: 950px) {
+
+    .drawer-hamberg-btn {
+        display: block;
+    }
+}
+
 @media screen and (max-width:500px) {
 
     .login {
-        font-size: 1.2rem;
+        font-size: 1.4Rem;
         cursor: default
     }
-
+    .navbar-left {
+        justify-content: space-between;
+        width: 67%;
+    }
     .navbar {
         justify-content: space-between;
         padding: 0.8rem 0.1rem;

@@ -5,12 +5,12 @@ import { useData } from "../../../context/data/videoContext";
 
 export function PlaylistList() {
   const { playListId } = useParams();
-  const { playlist } = useData();
+  const { playlist, drawer } = useData();
   const playlistVideo = playlist?.find((list) => list._id === playListId);
   const { title, videos } = playlistVideo;
   const isPlaylistFill = videos.length > 0;
   return (
-    <div className="video-list-container">
+    <div className={`video-list-container ${drawer && "disabled-click"}`}>
       <div className="container-title">
         <h3>{title}</h3>
         {isPlaylistFill && (

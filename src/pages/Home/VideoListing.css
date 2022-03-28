@@ -1,5 +1,6 @@
 .category-list {
     display: flex;
+    gap: 1rem
 }
 
 .category {
@@ -9,7 +10,6 @@
     background-color: var(--container-color-dark);
     padding: 0.4rem 1rem;
     border-radius: var(--border-lg);
-    margin-right: 1rem;
     cursor: pointer;
 }
 
@@ -26,13 +26,13 @@
 @media screen and (max-width: 630px) {
 
     .category-list {
-        justify-content: center;
+        justify-content: space-between;
+        gap: 0.5rem
     }
 
     .category {
-        flex-wrap: wrap;
-        font-size: 0.5rem;
-        padding: 0.4rem 0.5rem;
+        font-size: 0.7rem;
+        padding: 0.35rem 0.5rem;
         cursor: default
     }
 

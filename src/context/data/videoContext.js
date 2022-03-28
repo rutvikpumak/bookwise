@@ -16,6 +16,7 @@ const DataProvider = ({ children }) => {
   const [modal, setModal] = useState(false);
   const [modalData, setModelData] = useState({});
   const [loader, setLoader] = useState(false);
+  const [drawer, setDrawer] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -63,6 +64,8 @@ const DataProvider = ({ children }) => {
         setModelData,
         loader,
         setLoader,
+        drawer,
+        setDrawer,
       }}
     >
       {children}

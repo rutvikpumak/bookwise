@@ -59,17 +59,6 @@
 }
 
 @media screen and (max-width: 950px) {
-
-    .trans-on {
-        left: 0;
-        transition: left 0.5s ease-out;
-    }
-
-    .trans-off {
-        left: -30.875rem;
-        transition: left 0.5s ease-out;
-    }
-
     .play-container {
         margin-left: 0rem;
         z-index: 2;

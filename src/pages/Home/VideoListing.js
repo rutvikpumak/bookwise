@@ -6,7 +6,8 @@ import { ACTION_TYPE } from "../../utils";
 import { searchVideos, sortVideos } from "../../services";
 
 export function VideoListing() {
-  const { category, videos, dispatch, sortBy, search, setLoader } = useData();
+  const { category, videos, dispatch, sortBy, search, setLoader, drawer } =
+    useData();
 
   const sortHandler = (catName) => {
     setLoader(true);
@@ -20,7 +21,7 @@ export function VideoListing() {
   const sortByCategory = sortVideos(searchByName, sortBy);
 
   return (
-    <div className="video-list-container">
+    <div className={`video-list-container ${drawer && "disabled-click"}`}>
       <div className="category-list">
         {category.map(({ _id, categoryName, isActive }) => (
           <div

@@ -42,18 +42,19 @@
 
     .trans-off {
         left: -30.875rem;
-        transition: left 0.5s ease-out;
+        transition: left 1s ease-out;
     }
 }
 
 @media screen and (max-width:500px) {
 
     .sidebar-container {
-        width: 200px;
+        width: 220px;
     }
 
-    .sidebar-option{
-        cursor:default
+    .sidebar-option {
+        cursor: default;
+        padding:1rem
     }
 
 }

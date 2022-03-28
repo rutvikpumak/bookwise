@@ -10,7 +10,7 @@ export function Navbar() {
   const [input, setInput] = useState("");
   const { token } = useAuth();
   const navigate = useNavigate();
-  const { dispatch } = useData();
+  const { dispatch, setDrawer, drawer } = useData();
   const searchHandler = (e) => {
     if (e.key === "Enter" || e.keyCode === 8 || e.target.value === "")
       dispatch({
@@ -24,8 +24,15 @@ export function Navbar() {
       <ul className="navbar">
         <div className="navbar-main ">
           <div className="navbar-left">
-            <img className="logo" src={logo} />
-            <h2> Bookwise</h2>
+            <i
+              className="fa fa-bars drawer-hamberg-btn"
+              aria-hidden="true"
+              onClick={() => setDrawer(!drawer)}
+            />
+            <div className="flex-center">
+              <img className="logo" src={logo} />
+              <h2> Bookwise</h2>
+            </div>
           </div>
           <div className="search-container">
             <i className="fa fa-search" aria-hidden="true"></i>

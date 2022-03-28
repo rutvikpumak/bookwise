@@ -7,7 +7,7 @@ import { clearHistory } from "../../services";
 import { useAuth } from "../../context/auth/authContext";
 
 export function History() {
-  const { dispatch, videos } = useData();
+  const { dispatch, videos, drawer } = useData();
   const { token } = useAuth();
   const navigate = useNavigate();
 
@@ -15,7 +15,7 @@ export function History() {
   const isHistoryFill = history.length > 0;
 
   return (
-    <div className="video-list-container">
+    <div className={`video-list-container ${drawer && "disabled-click"}`}>
       <div className="container-title">
         <h3>History</h3>
         {isHistoryFill && (
