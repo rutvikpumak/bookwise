@@ -14,7 +14,7 @@
 .video-footer {
     display: flex;
     flex-direction: column;
-    gap: 2rem
+    gap: 1.5rem
 }
 
 .footer-title {
@@ -53,9 +53,77 @@
 .footer-btn-list div .fa{
     margin-right: 0.5rem;
 }
+
 .footer-description {
-    margin-bottom: 2rem;
-    line-height: 2rem;
+    line-height: 1.35rem;
+}
+
+.footer-description div p {
+    padding-top: 1rem;
+}
+
+.comment-container {
+    border-top: 1px solid var(--lightGrey);
+    padding: 1.5rem 0;
+}
+
+.comment-container>h4 {
+    padding-bottom: 1rem;
+}
+
+.comment {
+    padding: 1rem 0;
+    display: flex;
+    gap: 0.5rem
+}
+
+.avatar {
+    width: 1rem;
+    padding: 1rem;
+    height: 1rem;
+    background: var(--primary-color);
+}
+
+.comment .paragraph-sm {
+    font-size: 0.9rem;
+}
+
+.comment-input {
+    background: var(--bg-color);
+    outline: none;
+    border: none;
+    color: var(--font-color);
+    border-bottom: 0.5px solid var(--lightGrey);
+    font-family: inherit;
+    flex-grow: 1;
+}
+
+.input {
+    display: inherit;
+    flex-grow: 1;
+    gap: 0.5rem
+}
+
+.input>div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.input .paragraph-md {
+    cursor: pointer;
+}
+
+.comment-btn {
+    padding: 4px 10px;
+}
+
+.disabled-btn {
+    cursor: not-allowed;
+}
+
+.enabled-btn {
+    cursor: pointer;
 }
 
 @media screen and (max-width: 950px) {
@@ -66,6 +134,14 @@
 }
 
 @media screen and (max-width:500px) {
+    .input {
+        flex-direction: column;
+    }
+
+    .input>div {
+        justify-content: flex-end;
+    }
+
     .play-container {
         padding: 1rem;
     }

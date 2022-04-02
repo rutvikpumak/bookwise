@@ -1,3 +1,4 @@
+import { act } from "@testing-library/react";
 import { ACTION_TYPE } from "../utils";
 
 export const initialState = {
@@ -30,6 +31,18 @@ export const videoReducer = (state, action) => {
             ...cat,
             isActive: false,
           })),
+        ],
+      };
+    case ACTION_TYPE.ADD_COMMENT:
+      const { videoId, commentObj } = action.payload;
+      return {
+        ...state,
+        videos: [
+          ...state.videos.map((video) =>
+            video._id === videoId
+              ? { ...video, comments: [commentObj, ...video.comments] }
+              : { ...video }
+          ),
         ],
       };
     case ACTION_TYPE.SORT_BY:
