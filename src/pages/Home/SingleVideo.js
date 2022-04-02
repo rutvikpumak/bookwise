@@ -1,18 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../../context/auth/authContext";
 import { useData } from "../../context/data/videoContext";
-import { addToLike } from "../../services";
-import { watchLaterHandler } from "../../utils";
+import { ACTION_TYPE, watchLaterHandler } from "../../utils";
 import { likeHandler } from "../../utils/likedUtils";
 import "./SingleVideo.css";
 
 export function SingleVideo() {
   const { videoId } = useParams();
   const { videos, dispatch, setModal, setModelData } = useData();
-  const { token } = useAuth();
+  const { token, user } = useAuth();
   const navigate = useNavigate();
-
+  const [commentInput, setCommentInput] = useState("");
   const video = videos?.find((video) => video._id === videoId);
   const isInWatchLater = video && video.isInWatchLater;
   const isInLiked = video && video.isInLiked;
@@ -24,6 +23,23 @@ export function SingleVideo() {
     } else {
       navigate("/login");
     }
+  };
+
+  const addCommentHandler = () => {
+    const { firstName, lastName } = user;
+    const commentObj = {
+      user: `${firstName} ${lastName}`,
+      comment: commentInput,
+      color: "#d3931c",
+    };
+    dispatch({
+      type: ACTION_TYPE.ADD_COMMENT,
+      payload: {
+        videoId,
+        commentObj,
+      },
+    });
+    setCommentInput("");
   };
   return video ? (
     <div className="play-container">
@@ -45,9 +61,7 @@ export function SingleVideo() {
         <div className="footer-btn-list">
           <div
             className={`${isInLiked ? "is-select" : "is-not-select"}`}
-            onClick={() =>
-              token ? likeHandler(dispatch, video, token) : navigate("/login")
-            }
+            onClick={() => (token ? likeHandler(dispatch, video, token) : navigate("/login"))}
           >
             <i className="fa fa-thumbs-o-up" aria-hidden="true"></i>
             <span> {isInLiked ? "Liked" : "Like"}</span>
@@ -58,11 +72,7 @@ export function SingleVideo() {
           </div>
           <div
             className={`${isInWatchLater ? "is-select" : "is-not-select"}`}
-            onClick={() =>
-              token
-                ? watchLaterHandler(dispatch, video, token)
-                : navigate("/login")
-            }
+            onClick={() => (token ? watchLaterHandler(dispatch, video, token) : navigate("/login"))}
           >
             <i className="fa fa-clock-o" aria-hidden="true"></i>
             <span>Watch Later</span>
@@ -73,6 +83,57 @@ export function SingleVideo() {
           <div>
             <p>{video.description}</p>
           </div>
+        </div>
+        <div className="comment-container">
+          <h4>
+            <i className="fa fa-align-left" aria-hidden="true"></i> {video.comments.length} Comments
+            :
+          </h4>
+          <div className="comment">
+            <div className="avatar sm flex-center">
+              <h4>{user ? user.firstName.charAt(0).toUpperCase() : ""}</h4>
+            </div>
+
+            <div className="input comment-right">
+              <input
+                placeholder="Add a comment..."
+                className="comment-input paragraph-sm"
+                value={commentInput}
+                onChange={(e) => setCommentInput(e.target.value)}
+                onClick={!token && navigate("/login")}
+              />
+              <div>
+                <p className="paragraph-md" onClick={() => setCommentInput("")}>
+                  Clear
+                </p>
+                <button
+                  className={`btn default comment-btn ${
+                    commentInput.length > 0 ? "enabled-btn" : "disabled-btn"
+                  }`}
+                  onClick={addCommentHandler}
+                  disabled={commentInput.length === 0}
+                >
+                  Comment
+                </button>
+              </div>
+            </div>
+          </div>
+          {video.comments.map(({ comment, user, color }) => (
+            <div key={comment} className="comment">
+              <div
+                style={{
+                  background: color,
+                }}
+                className={`avatar sm flex-center`}
+              >
+                <h4>{user.charAt(0).toUpperCase()}</h4>
+              </div>
+              <div className="comment-right">
+                <h4>{user}</h4>
+                <p className="paragraph-sm">{comment}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
