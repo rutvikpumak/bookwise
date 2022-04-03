@@ -36,3 +36,8 @@ $ npm start
 - React Context API + useReducer
 - React Router v6
 - Vanilla CSS integrated with BoostMat UI Component Library
+
+## **Demo -**
+![image](https://user-images.githubusercontent.com/58260342/161411597-f9ded4b9-c78f-4aef-aaa4-2cbc5dc67b70.png)
+
+![bookwise](https://user-images.githubusercontent.com/58260342/161411579-b30b0a4a-37a7-4d9f-9c20-c8a8e182e8f5.gif)
