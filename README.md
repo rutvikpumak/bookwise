@@ -1,3 +1,38 @@
-## Bookwise : Video Library Backend
+<div align="center">
+  <img src="src/assets/logo.png" height="100" width="100" alt="logo"/>
+  
+# Bookwise
+  A video library website based on Books Reviews
+</div>
 
-This folder contains the Mock Backend created for Video Library App. It contains different API end-points and database configuration for building Video Library; so that you can focus on building Frontend.
+## **How to install and run locally ?**
+
+```
+$ git clone https://github.com/rutvikpumak/bookwise.git
+$ cd bookwise
+$ npm install
+$ npm start
+```
+## **Features -**
+
+- Home page
+- Video listing page
+- Filter Videos
+- Search video
+- Individual video page
+- Like video 
+- Watch Later Video
+- History video
+- Create playlist
+- Comment on video
+- Authentication:
+  - User Signup
+  - User Login
+ - Fully Responsive
+
+## **Built with -**
+
+- React JS
+- React Context API + useReducer
+- React Router v6
+- Vanilla CSS integrated with BoostMat UI Component Library
