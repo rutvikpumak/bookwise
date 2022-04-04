@@ -12,7 +12,7 @@ export function Navbar() {
   const { token } = useAuth();
   const navigate = useNavigate();
   const { dispatch, setDrawer, drawer } = useData();
-  const { theme, setTheme } = useTheme();
+  const { changeTheme } = useTheme();
 
   const searchHandler = (e) => {
     if (e.key === "Enter" || e.keyCode === 8 || e.target.value === "")
@@ -54,7 +54,7 @@ export function Navbar() {
               <i
                 className="fa fa-moon-o nav-header-icon"
                 aria-hidden="true"
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                onClick={() => changeTheme()}
               />
             </li>
             <li className="login nav-header-icon">
