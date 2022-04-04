@@ -1,5 +1,5 @@
 .modal-wrapper {
-    background: #342e2ebf;
+    background: #342e2ebf;    
     width: 100vw;
     position: fixed;
     height: 100vh;
@@ -8,7 +8,7 @@
 
 .modal {
     color: var(--font-color);
-    background: #2b2b31;
+    background: var(--bg-color);
     padding: 1rem;
     gap: 1.2rem;
     width: 20rem

@@ -43,22 +43,13 @@ export default function VideoCard({ video }) {
           <h3 className="card-title-header">{title}</h3>
           <div className="ellipse" onClick={() => setShowList(!showList)}>
             <i className="fa fa-ellipsis-v" aria-hidden="true"></i>
-            <div
-              className={`option-list ${
-                showList ? "display-flex" : "display-none"
-              }`}
-            >
-              <div
-                className={`${isInWatchLater && "btn-trash"}`}
-                onClick={() => addToWatchLater()}
-              >
+            <div className={`option-list ${showList ? "display-flex" : "display-none"}`}>
+              <div className={`${isInWatchLater && "btn-trash"}`} onClick={() => addToWatchLater()}>
                 <i
                   className={`fa ${isInWatchLater ? "fa-trash" : "fa-clock-o"}`}
                   aria-hidden="true"
                 />
-                {isInWatchLater
-                  ? "Remove from Watch Later"
-                  : "Add to Watch Later"}
+                {isInWatchLater ? "Remove from Watch Later" : "Add to Watch Later"}
               </div>
               <div onClick={() => addToPlaylist()}>
                 <i className="fa fa-play-circle" aria-hidden="true"></i>

@@ -100,7 +100,7 @@ export function SingleVideo() {
                 className="comment-input paragraph-sm"
                 value={commentInput}
                 onChange={(e) => setCommentInput(e.target.value)}
-                onClick={!token && navigate("/login")}
+                onClick={() => !token && navigate("/login")}
               />
               <div>
                 <p className="paragraph-md" onClick={() => setCommentInput("")}>
