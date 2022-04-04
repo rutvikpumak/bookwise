@@ -21,13 +21,9 @@
     padding: 0 1rem
 }
 
-.login {
+.navbar-right > li {
     cursor: pointer;
-    font-size: 1.8rem;
-}
-
-.login:hover {
-    color: var(--primary-color)
+    font-size: 1.7rem;
 }
 
 /* Search Bar */
@@ -79,10 +75,15 @@
     cursor: pointer;
 }
 
+.nav-header-icon{
+    color: var(--icon-color);
+}
+
 @media screen and (max-width: 950px) {
 
     .drawer-hamberg-btn {
         display: block;
+        color: var(--icon-color);
     }
     .logo-wrapper{
         cursor: default;
@@ -97,7 +98,6 @@
     }
     .navbar-left {
         justify-content: space-between;
-        width: 67%;
     }
     .navbar {
         justify-content: space-between;
@@ -116,6 +116,11 @@
 
     .logo {
         height: 30px;
+    }
+
+    .navbar-right > li {
+        cursor: default;
+        font-size: 1.4rem;
     }
 }
 

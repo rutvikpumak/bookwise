@@ -1,3 +1,7 @@
+.App{
+    background: var(--bg-color);
+    min-height: 100vh;
+}
 .video-list-container {
     background-color: var(--bg-color);
     display: flex;

@@ -1,30 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@500&display=swap');
+
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
-:root {
+
+.default-theme {
     --font-color: #e8e6e3;
     --bg-color: #141319;
     --navbar-color: #191921;
     --navbar-color-dark: #23232e;
     --container-color: #222230;
     --container-color-dark: #34343d;
-    --primary-color:#d3931c;
-    --danger-color:#e76464;
+    --primary-color: #d3931c;
+    --danger-color: #e76464;
+    --icon-color: var(--white);
     color: var(--font-color)
+}
+
+.light-theme {
+    --font-color: #0e0e0d;
+    --bg-color: #eaeaea;
+    --navbar-color: #dbdbdb;
+    --navbar-color-dark: #f4f4f4;
+    --container-color: #dadada;
+    --container-color-dark: #cecece;
+    --primary-color: #d3931c;
+    --danger-color: #e76464;
+    --icon-color: var(--font-color);
+    color:var(--font-color);
 }
 
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background: var(--bg-color);
     font-family: 'Encode Sans', sans-serif;
-    letter-spacing:0.5px;
+    letter-spacing: 0.5px;
 }
 
 a {
