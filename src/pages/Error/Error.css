@@ -1,0 +1,16 @@
+.responsive-image {
+    border-radius: 0;
+    width: auto;
+    height: auto;
+    aspect-ratio: 1/1;
+    max-height: calc(100vh - 104px);
+    margin: 0 auto;
+    min-width: auto;
+}
+
+@media screen and (max-width:550px){
+    .responsive-image {
+        width: 100%;
+        min-width: 100%;
+    }
+}

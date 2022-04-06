@@ -17,7 +17,7 @@ export function LikedCard({ video }) {
       <img
         className="card-img"
         src={`https://i.ytimg.com/vi/${_id}/0.jpg`}
-        onClick={() => navigate(`/${_id}`)}
+        onClick={() => navigate(`video//${_id}`)}
       />
       <div className="card-info" title={title}>
         <div className="card-title">

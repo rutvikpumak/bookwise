@@ -13,6 +13,7 @@ import {
   WatchLater,
   PlaylistList,
   UserProfile,
+  Error,
 } from "./pages";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { PrivateRoute } from "./component/PrivateRoute/PrivateRoute";
@@ -30,8 +31,9 @@ function App() {
         <Sidebar />
         {loader && <Loader />}
         <Routes>
+          <Route path="*" element={<Error />} />
           <Route path="/" element={<VideoListing />} />
-          <Route path="/:videoId" element={<SingleVideo />} />
+          <Route path="/video/:videoId" element={<SingleVideo />} />
           <Route
             path="/playlist"
             element={

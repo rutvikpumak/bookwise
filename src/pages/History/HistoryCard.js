@@ -17,18 +17,14 @@ export function HistoryCard({ video }) {
       <img
         className="card-img"
         src={`https://i.ytimg.com/vi/${_id}/0.jpg`}
-        onClick={() => navigate(`/${_id}`)}
+        onClick={() => navigate(`video/${_id}`)}
       />
       <div className="card-info" title={title}>
         <div className="card-title">
           <h3 className="card-title-header">{title}</h3>
           <div className="ellipse" onClick={() => setShowList(!showList)}>
             <i className="fa fa-ellipsis-v" aria-hidden="true"></i>
-            <div
-              className={`option-list ${
-                showList ? "display-flex" : "display-none"
-              }`}
-            >
+            <div className={`option-list ${showList ? "display-flex" : "display-none"}`}>
               <div>
                 <i className="fa fa-play-circle" aria-hidden="true"></i>
                 Add to Playlist
@@ -41,14 +37,9 @@ export function HistoryCard({ video }) {
                   className={`fa ${isInWatchLater ? "fa-trash" : "fa-clock-o"}`}
                   aria-hidden="true"
                 ></i>
-                {isInWatchLater
-                  ? "Remove from Watch Later"
-                  : "Add to Watch Later"}
+                {isInWatchLater ? "Remove from Watch Later" : "Add to Watch Later"}
               </div>
-              <div
-                className="btn-trash"
-                onClick={() => removeFromHistory(dispatch, _id, token)}
-              >
+              <div className="btn-trash" onClick={() => removeFromHistory(dispatch, _id, token)}>
                 <i className="fa fa-trash" aria-hidden="true"></i>
                 Remove from History
               </div>

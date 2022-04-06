@@ -11,31 +11,23 @@ export default function PlaylistCard({ video, listId }) {
   const { dispatch, videos } = useData();
   const { token } = useAuth();
   const navigate = useNavigate();
-  const isInWatchLater = videos.some(
-    (list) => list._id === _id && list.isInWatchLater
-  );
+  const isInWatchLater = videos.some((list) => list._id === _id && list.isInWatchLater);
   return (
     <div className="card">
       <img
         className="card-img"
         src={`https://i.ytimg.com/vi/${_id}/0.jpg`}
-        onClick={() => navigate(`/${_id}`)}
+        onClick={() => navigate(`video/${_id}`)}
       />
       <div className="card-info" title={title}>
         <div className="card-title">
           <h3 className="card-title-header">{title}</h3>
           <div className="ellipse" onClick={() => setShowList(!showList)}>
             <i className="fa fa-ellipsis-v" aria-hidden="true"></i>
-            <div
-              className={`option-list ${
-                showList ? "display-flex" : "display-none"
-              }`}
-            >
+            <div className={`option-list ${showList ? "display-flex" : "display-none"}`}>
               <div
                 className="btn-trash"
-                onClick={() =>
-                  removeVideoFromPlaylist(dispatch, listId, _id, token)
-                }
+                onClick={() => removeVideoFromPlaylist(dispatch, listId, _id, token)}
               >
                 <i className="fa fa-trash" aria-hidden="true"></i>
                 Remove from Playlist

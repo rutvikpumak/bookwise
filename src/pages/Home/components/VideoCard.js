@@ -14,7 +14,7 @@ export default function VideoCard({ video }) {
   const { _id, title, creator, isInHistory, isInWatchLater } = video;
 
   const clickToVideoHandler = () => {
-    navigate(`/${_id}`);
+    navigate(`video/${_id}`);
     token && !isInHistory && addToHistory(dispatch, video, token);
   };
 
