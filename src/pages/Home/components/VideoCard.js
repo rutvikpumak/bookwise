@@ -11,7 +11,7 @@ export default function VideoCard({ video }) {
   const { token } = useAuth();
   const { dispatch, setModal, setModelData } = useData();
   const [showList, setShowList] = useState(false);
-  const { _id, title, creator, isInHistory, isInWatchLater } = video;
+  const { _id, title, creator, isInHistory, isInWatchLater, uploaded } = video;
 
   const clickToVideoHandler = () => {
     navigate(`video/${_id}`);
@@ -61,6 +61,7 @@ export default function VideoCard({ video }) {
 
         <div className="card-description">
           <h3>{creator}</h3>
+          <p>{uploaded}</p>
         </div>
       </div>
     </div>

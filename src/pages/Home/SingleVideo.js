@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { useAuth } from "../../context/auth/authContext";
 import { useData } from "../../context/data/videoContext";
 import { ACTION_TYPE, watchLaterHandler } from "../../utils";
@@ -11,7 +11,9 @@ export function SingleVideo() {
   const { videos, dispatch, setModal, setModelData } = useData();
   const { token, user } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
   const [commentInput, setCommentInput] = useState("");
+  const [copy, setCopy] = useState(false);
   const video = videos?.find((video) => video._id === videoId);
   const isInWatchLater = video && video.isInWatchLater;
   const isInLiked = video && video.isInLiked;
@@ -41,6 +43,11 @@ export function SingleVideo() {
     });
     setCommentInput("");
   };
+
+  const copyLink = () => {
+    navigator.clipboard.writeText(`https://bookwise.netlify.app/video/${videoId}`);
+    setCopy(true);
+  };
   return video ? (
     <div className="play-container">
       <iframe
@@ -61,7 +68,11 @@ export function SingleVideo() {
         <div className="footer-btn-list">
           <div
             className={`${isInLiked ? "is-select" : "is-not-select"}`}
-            onClick={() => (token ? likeHandler(dispatch, video, token) : navigate("/login"))}
+            onClick={() =>
+              token
+                ? likeHandler(dispatch, video, token)
+                : navigate("/login", { replace: true, state: { from: location.pathname } })
+            }
           >
             <i className="fa fa-thumbs-o-up" aria-hidden="true"></i>
             <span> {isInLiked ? "Liked" : "Like"}</span>
@@ -76,6 +87,10 @@ export function SingleVideo() {
           >
             <i className="fa fa-clock-o" aria-hidden="true"></i>
             <span>Watch Later</span>
+          </div>
+          <div className={`${copy ? "is-select" : "is-not-select"}`} onClick={() => copyLink()}>
+            <i className="fa fa-files-o" aria-hidden="true"></i>
+            <span>{copy ? "Copied" : "Copy"}</span>
           </div>
         </div>
         <div className="footer-description">

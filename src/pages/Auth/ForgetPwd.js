@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import "./Auth.css";
 export function ForgetPwd() {
   return (
@@ -10,22 +12,20 @@ export function ForgetPwd() {
         <div class="auth-main">
           <div class="auth-email">
             <label for="mail">Email Address</label>
-            <input
-              placeholder="test@gmail.com"
-              class="text-input"
-              type="text"
-            />
+            <input placeholder="test@gmail.com" class="text-input" type="text" />
           </div>
         </div>
-        <div class="primary-btn text-center">
+        <div class="auth-primary-btn text-center">
           <a href="#" target="_blank" class="link-btn">
             Reset Password
           </a>
         </div>
-        <div class="auth-secondary-btn text-center">
-          <i class="fa fa-chevron-left" aria-hidden="true"></i>
-          <a href="./login.html"> Back to Sign In</a>
-        </div>
+        <Link to="/login">
+          <div class="auth-secondary-btn text-center">
+            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+            Back to Sign In
+          </div>
+        </Link>
       </div>
     </div>
   );

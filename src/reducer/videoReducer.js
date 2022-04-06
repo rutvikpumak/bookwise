@@ -29,7 +29,7 @@ export const videoReducer = (state, action) => {
         category: [
           ...action.payload.map((cat) => ({
             ...cat,
-            isActive: false,
+            isActive: cat.categoryName === "All" ? true : false,
           })),
         ],
       };
@@ -105,7 +105,6 @@ export const videoReducer = (state, action) => {
     case ACTION_TYPE.LOG_OUT:
       return {
         ...state,
-        // history: [],
       };
   }
 };
