@@ -33,7 +33,7 @@
     background-color: var(--container-color-dark);
     padding: 0.5rem 0.9rem;
     gap: 1rem;
-    width: 50%;
+    width: 35%;
     overflow: auto;
     border-radius: var(--border-md);
     color: var(--font-color);

@@ -10,10 +10,7 @@ export const categories = [
     _id: uuid(),
     categoryName: "All",
   },
-  {
-    _id: uuid(),
-    categoryName: "Sort by Latest",
-  },
+
   {
     _id: uuid(),
     categoryName: "Fiction",

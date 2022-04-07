@@ -77,10 +77,6 @@ export function SingleVideo() {
             <i className="fa fa-thumbs-o-up" aria-hidden="true"></i>
             <span> {isInLiked ? "Liked" : "Like"}</span>
           </div>
-          <div className="is-not-select" onClick={() => addToPlaylist()}>
-            <i className="fa fa-play-circle" aria-hidden="true"></i>
-            <span>Save</span>
-          </div>
           <div
             className={`${isInWatchLater ? "is-select" : "is-not-select"}`}
             onClick={() => (token ? watchLaterHandler(dispatch, video, token) : navigate("/login"))}
@@ -91,6 +87,10 @@ export function SingleVideo() {
           <div className={`${copy ? "is-select" : "is-not-select"}`} onClick={() => copyLink()}>
             <i className="fa fa-files-o" aria-hidden="true"></i>
             <span>{copy ? "Copied" : "Copy"}</span>
+          </div>
+          <div className="is-not-select" onClick={() => addToPlaylist()}>
+            <i className="fa fa-play-circle" aria-hidden="true"></i>
+            <span>Save</span>
           </div>
         </div>
         <div className="footer-description">

@@ -3,10 +3,10 @@ import React, { useState } from "react";
 import VideoCard from "./components/VideoCard";
 import { useData } from "../../context/data/videoContext";
 import { ACTION_TYPE } from "../../utils";
-import { searchVideos, sortVideos } from "../../services";
+import { searchVideos, sortVideos, sortVideosByDate } from "../../services";
 
 export function VideoListing() {
-  const { category, videos, dispatch, sortBy, search, setLoader, drawer } = useData();
+  const { category, videos, dispatch, sortBy, sortByDate, search, setLoader, drawer } = useData();
 
   const sortHandler = (catName) => {
     setLoader(true);
@@ -18,6 +18,7 @@ export function VideoListing() {
 
   const searchByName = searchVideos([...videos], search);
   const sortByCategory = sortVideos(searchByName, sortBy);
+  const sortLatest = sortVideosByDate(sortByCategory, sortByDate);
 
   return (
     <div className={`video-list-container ${drawer && "disabled-click"}`}>
@@ -32,9 +33,21 @@ export function VideoListing() {
           </div>
         ))}
       </div>
+      <div className="sort-btn" onClick={() => dispatch({ type: ACTION_TYPE.SORT_BY_DATE })}>
+        {sortByDate ? (
+          <>
+            <span>Clear</span>
+          </>
+        ) : (
+          <>
+            <i className="fa fa-sort-amount-desc" aria-hidden="true" />
+            <span>Sort Latest</span>
+          </>
+        )}
+      </div>
 
       <div className="responsive-grid">
-        {sortByCategory.map((video) => (
+        {sortLatest.map((video) => (
           <VideoCard key={video.id} video={video} />
         ))}
       </div>

@@ -31,6 +31,7 @@
     --primary-color: #d3931c;
     --danger-color: #e76464;
     --icon-color: var(--font-color);
+    --lightGrey:var(--font-color);
     color:var(--font-color);
 }
 

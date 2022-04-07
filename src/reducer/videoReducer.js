@@ -1,4 +1,3 @@
-import { act } from "@testing-library/react";
 import { ACTION_TYPE } from "../utils";
 
 export const initialState = {
@@ -7,6 +6,7 @@ export const initialState = {
   playlist: [],
   sortBy: "",
   search: "",
+  sortByDate: false,
 };
 
 export const videoReducer = (state, action) => {
@@ -60,6 +60,11 @@ export const videoReducer = (state, action) => {
                 isActive: false,
               }
         ),
+      };
+    case ACTION_TYPE.SORT_BY_DATE:
+      return {
+        ...state,
+        sortByDate: !state.sortByDate,
       };
     case ACTION_TYPE.HISTORY:
       return {

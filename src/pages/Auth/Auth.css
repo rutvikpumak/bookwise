@@ -2,6 +2,7 @@
     flex-grow: 1;
     flex-direction: column;
     height: calc(100vh - 72px);
+    margin-left: 270px;
 }
 
 .auth-main-container {
@@ -19,12 +20,12 @@
     flex-direction: column;
     justify-content: center;
     gap: 1.3rem;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
 
 .auth-main-container input {
     border-radius: var(--border-sm);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     padding: 0.4rem 1rem;
     cursor: pointer;
     color: var(--font-color);
@@ -75,18 +76,16 @@
     cursor: pointer;
     background-color: var(--primary-color);
     color: var(--white);
-    padding: 0.5rem 0;
-}
-
-.auth-primary-btn a {
-    color: var(--white);
-    background: var(--primary-color);
+    padding: 0.5rem 1rem;
 }
 
 .auth-secondary-btn {
     cursor: pointer;
     margin-top: 1rem;
-    
+}
+
+.auth-primary-btn:hover {
+    opacity: 0.8;
 }
 
 .auth-secondary-btn a {
@@ -105,6 +104,13 @@
 
 .first-last-wrapper .text-input {
     width: 100%;
+}
+
+@media screen and (max-width:950px) {
+    .auth-container {
+        margin-left: 0;
+    }
+
 }
 
 @media screen and (max-width:500px) {

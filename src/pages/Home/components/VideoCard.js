@@ -14,7 +14,7 @@ export default function VideoCard({ video }) {
   const { _id, title, creator, isInHistory, isInWatchLater, uploaded } = video;
 
   const clickToVideoHandler = () => {
-    navigate(`video/${_id}`);
+    navigate(`/video/${_id}`);
     token && !isInHistory && addToHistory(dispatch, video, token);
   };
 
@@ -40,7 +40,9 @@ export default function VideoCard({ video }) {
       />
       <div className="card-info" title={title}>
         <div className="card-title">
-          <h3 className="card-title-header">{title}</h3>
+          <h3 className="card-title-header" onClick={() => clickToVideoHandler()}>
+            {title}
+          </h3>
           <div className="ellipse" onClick={() => setShowList(!showList)}>
             <i className="fa fa-ellipsis-v" aria-hidden="true"></i>
             <div className={`option-list ${showList ? "display-flex" : "display-none"}`}>

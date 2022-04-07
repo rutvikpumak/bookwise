@@ -17,13 +17,10 @@ export default function PlaylistFolder({ listFolder }) {
         <>
           <img
             className="card-img playlistFolder"
-            src={`${
-              videos.length > 0 &&
-              `https://i.ytimg.com/vi/${videos[0]._id}/0.jpg`
-            }`}
+            src={`${videos.length > 0 && `https://i.ytimg.com/vi/${videos[0]._id}/0.jpg`}`}
             onClick={() => navigate(`/playlist/${_id}`)}
           />
-          <div className="card-highlight flex-center">
+          <div className="card-highlight flex-center" onClick={() => navigate(`/playlist/${_id}`)}>
             <i className="fa fa-play-circle" aria-hidden="true"></i>
             <p>{videos.length}+</p>
           </div>
@@ -40,15 +37,8 @@ export default function PlaylistFolder({ listFolder }) {
 
           <div className="ellipse" onClick={() => setShowList(!showList)}>
             <i className="fa fa-ellipsis-v" aria-hidden="true"></i>
-            <div
-              className={`option-list ${
-                showList ? "display-flex" : "display-none"
-              }`}
-            >
-              <div
-                className="btn-trash"
-                onClick={() => removePlaylist(dispatch, _id, token)}
-              >
+            <div className={`option-list ${showList ? "display-flex" : "display-none"}`}>
+              <div className="btn-trash" onClick={() => removePlaylist(dispatch, _id, token)}>
                 <i className="fa fa-trash " aria-hidden="true"></i>
                 Delete Playlist
               </div>

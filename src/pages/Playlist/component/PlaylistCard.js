@@ -1,23 +1,21 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../context/auth/authContext";
 import { useData } from "../../../context/data/videoContext";
 import { removeVideoFromPlaylist } from "../../../services";
-import { watchLaterHandler } from "../../../utils";
 
 export default function PlaylistCard({ video, listId }) {
   const [showList, setShowList] = useState(false);
-  const { _id, title, creator } = video;
+  const { _id, title, creator, uploaded  } = video;
   const { dispatch, videos } = useData();
   const { token } = useAuth();
   const navigate = useNavigate();
-  const isInWatchLater = videos.some((list) => list._id === _id && list.isInWatchLater);
   return (
     <div className="card">
       <img
         className="card-img"
         src={`https://i.ytimg.com/vi/${_id}/0.jpg`}
-        onClick={() => navigate(`video/${_id}`)}
+        onClick={() => navigate(`/video/${_id}`)}
       />
       <div className="card-info" title={title}>
         <div className="card-title">
@@ -38,6 +36,7 @@ export default function PlaylistCard({ video, listId }) {
 
         <div className="card-description">
           <h3>{creator}</h3>
+          <p>{uploaded}</p>
         </div>
       </div>
     </div>

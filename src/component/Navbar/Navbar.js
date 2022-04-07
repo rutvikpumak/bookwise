@@ -60,13 +60,13 @@ export function Navbar() {
             <li className="login nav-header-icon">
               {!token ? (
                 <i
-                  className="fa fa-user-circle-o"
+                  className="fa fa-sign-in"
                   aria-hidden="true"
                   onClick={() => navigate("/login")}
                 />
               ) : (
                 <i
-                  className="fa fa-cog"
+                  className="fa fa-user-circle-o"
                   aria-hidden="true"
                   onClick={() => navigate("/userProfile")}
                 ></i>

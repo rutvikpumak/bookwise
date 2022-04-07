@@ -1,11 +1,7 @@
-export { sortVideos, searchVideos } from "./getSortVideos";
+export { sortVideos, searchVideos, sortVideosByDate } from "./getSortVideos";
 export { loginService } from "./login/loginService";
 export { signUpService } from "./signUp/signUpService";
-export {
-  addToHistory,
-  removeFromHistory,
-  clearHistory,
-} from "./history/historyService";
+export { addToHistory, removeFromHistory, clearHistory } from "./history/historyService";
 export {
   addToWatchLater,
   removeFromWatchLater,

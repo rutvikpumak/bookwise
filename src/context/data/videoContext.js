@@ -1,11 +1,5 @@
 import axios from "axios";
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useReducer,
-  useState,
-} from "react";
+import { createContext, useContext, useEffect, useReducer, useState } from "react";
 import { ACTION_TYPE } from "../../utils/constant";
 import { initialState, videoReducer } from "../../reducer/videoReducer";
 
@@ -58,6 +52,7 @@ const DataProvider = ({ children }) => {
         dispatch: dispatch,
         search: state.search,
         playlist: state.playlist,
+        sortByDate: state.sortByDate,
         modal,
         setModal,
         modalData,

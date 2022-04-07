@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAuth } from "../../context/auth/authContext";
 import { useData } from "../../context/data/videoContext";
 import { removeFromLike } from "../../services";
@@ -7,28 +7,23 @@ import { watchLaterHandler } from "../../utils";
 
 export function LikedCard({ video }) {
   const [showList, setShowList] = useState(false);
-  const { _id, title, creator, isInWatchLater, isInLiked } = video;
+  const { _id, title, creator, isInWatchLater, isInLiked, uploaded } = video;
   const { dispatch } = useData();
   const { token } = useAuth();
-  const navigate = useNavigate();
 
   return (
     <div className="card">
-      <img
-        className="card-img"
-        src={`https://i.ytimg.com/vi/${_id}/0.jpg`}
-        onClick={() => navigate(`video//${_id}`)}
-      />
+      <Link to={`/video/${_id}`}>
+        <img className="card-img" src={`https://i.ytimg.com/vi/${_id}/0.jpg`} />
+      </Link>
       <div className="card-info" title={title}>
         <div className="card-title">
-          <h3 className="card-title-header">{title}</h3>
+          <Link to={`/video/${_id}`}>
+            <h3 className="card-title-header">{title}</h3>
+          </Link>
           <div className="ellipse" onClick={() => setShowList(!showList)}>
             <i className="fa fa-ellipsis-v" aria-hidden="true"></i>
-            <div
-              className={`option-list ${
-                showList ? "display-flex" : "display-none"
-              }`}
-            >
+            <div className={`option-list ${showList ? "display-flex" : "display-none"}`}>
               <div>
                 <i className="fa fa-play-circle" aria-hidden="true"></i>
                 Add to Playlist
@@ -41,18 +36,13 @@ export function LikedCard({ video }) {
                   className={`fa ${isInWatchLater ? "fa-trash" : "fa-clock-o"}`}
                   aria-hidden="true"
                 ></i>
-                {isInWatchLater
-                  ? "Remove from Watch Later"
-                  : "Add to Watch Later"}
+                {isInWatchLater ? "Remove from Watch Later" : "Add to Watch Later"}
               </div>
               <div
                 className={`${isInLiked && "btn-trash"}`}
                 onClick={() => removeFromLike(dispatch, _id, token)}
               >
-                <i
-                  className={`fa ${isInLiked ? "fa-trash" : "fa-clock-o"}`}
-                  aria-hidden="true"
-                ></i>
+                <i className={`fa ${isInLiked ? "fa-trash" : "fa-clock-o"}`} aria-hidden="true"></i>
                 Remove From Liked Video
               </div>
             </div>
@@ -61,6 +51,7 @@ export function LikedCard({ video }) {
 
         <div className="card-description">
           <h3>{creator}</h3>
+          <p>{uploaded}</p>
         </div>
       </div>
     </div>
