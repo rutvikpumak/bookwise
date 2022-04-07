@@ -19,6 +19,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { PrivateRoute } from "./component/PrivateRoute/PrivateRoute";
 import { useData } from "./context/data/videoContext";
 import { useTheme } from "./context/theme/themeContext";
+import { ForgetPwd } from "./pages/Auth";
 
 function App() {
   const { loader } = useData();
@@ -76,6 +77,8 @@ function App() {
           />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/forgetPwd" element={<ForgetPwd />} />
+
           <Route path="/userProfile" element={<UserProfile />} />
         </Routes>
       </Router>

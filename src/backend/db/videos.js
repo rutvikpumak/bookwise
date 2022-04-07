@@ -11,6 +11,7 @@ export const videos = [
       "In this episode of Book Club we're talking about Atomic Habits by James Clear. We look at the power of 1% change, the importance of adopting better systems rather than setting goals, the need to focus on identity rather than outcomes and, ultimately, how to build better habits through the 4 laws",
     creator: "Ali Abdal",
     category: "Self Help",
+    uploaded: "Dec 12 2021",
     comments: [
       {
         user: "Bablu Trailor",
@@ -33,6 +34,7 @@ export const videos = [
       "Yo Yo Yo! Make sure you suggest some of your favourite books to me too! Lemme kno you liked the books from this video! LoveLove!",
     creator: "Mostly Sane",
     category: "Others",
+    uploaded: "Jan 12 2021",
     comments: [
       {
         user: "Bablu Trailor",
@@ -53,6 +55,7 @@ export const videos = [
     description: "Reviewing one of my favourite books - Ikigai ,The Japanese Formula For Happiness",
     creator: "Books Amaze",
     category: "Non Fiction",
+    uploaded: "May 1 2020",
     comments: [
       {
         user: "Bablu Trailor",
@@ -74,6 +77,7 @@ export const videos = [
     description:
       "These books have changed the way I operate, and thankfully so.If you want to change the way you operate, read, re-read and apply the learnings in these books. And you won’t regret a dime!",
     category: "Others",
+    uploaded: "Apr 1 2022",
     comments: [
       {
         user: "Bablu Trailor",
@@ -94,6 +98,7 @@ export const videos = [
       "5 Am Club by Robin Sharma || Review, Takeaways and Discussion. I bet you wanna be successful, rich and productive. 5 Am club is the solution. Join me in discussing this hyped release and grab it if you haven't already.",
     creator: "Helly",
     category: "Fiction",
+    uploaded: "Mar 12 2018",
     comments: [
       {
         user: "Bablu Trailor",
@@ -114,6 +119,7 @@ export const videos = [
       "Yo Yo Yo! Make sure you suggest some of your favourite books to me too! Lemme kno you liked the books from this video! LoveLove!",
     creator: "Mostly Sane",
     category: "Others",
+    uploaded: "Feb 12 2015",
     comments: [
       {
         user: "Bablu Trailor",
@@ -135,6 +141,7 @@ export const videos = [
       "Watch this video to get know about this book. Staying wealthy is not equal being wealthy",
     creator: "Ankur Warikoo",
     category: "Self Help",
+    uploaded: "Sep 13 2019",
     comments: [
       {
         user: "Bablu Trailor",
@@ -158,6 +165,7 @@ export const videos = [
       "I like big books and I cannot lie! Do you want to read more? May be you have a long list of books you want to get through. I've developed a system that allows me to read 1 book a day! I want to share it with you in this video! ",
     creator: "Jay Shetty",
     category: "Others",
+    uploaded: "Nov 12 2021",
     comments: [
       {
         user: "Bablu Trailor",
@@ -179,6 +187,7 @@ export const videos = [
       "In this video I have shared my views on the book Think like a monk by @Jay Shetty  I absolutely loved the book and I think it's an ideal book for beginners. ",
     creator: "Book Junction",
     category: "Non Fiction",
+    uploaded: "Dec 15 2021",
     comments: [
       {
         user: "Bablu Trailor",
@@ -200,6 +209,7 @@ export const videos = [
       "Hey guys, Books for Beginners are very easy to read and they are the perfect way to start reading! I made a list of Indian English Books for beginners too!",
     creator: "Helly",
     category: "Others",
+    uploaded: "May 15 2000",
     comments: [
       {
         user: "Bablu Trailor",
@@ -221,6 +231,7 @@ export const videos = [
       "This book had so much impact on me growing up, because it fundamentally changed my equation with money, and life!",
     creator: "Ankur Warikoo",
     category: "Fiction",
+    uploaded: "Oct 9 2021",
     comments: [
       {
         user: "Bablu Trailor",
@@ -242,6 +253,7 @@ export const videos = [
       "About the book: Do Epic Shit by @warikoo  is a Self Help guide to becoming better at what you do / plan to do by learning from the mistakes that the author Ankur Warikoo has made in his professional and at time in his personal journey as well.",
     creator: "Brown Brainiac",
     category: "Self Help",
+    uploaded: "Aug 12 2018",
     comments: [
       {
         user: "Bablu Trailor",

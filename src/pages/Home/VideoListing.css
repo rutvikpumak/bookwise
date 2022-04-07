@@ -27,7 +27,10 @@
 
     .category-list {
         justify-content: space-between;
-        gap: 0.5rem
+        gap: 0.5rem;
+        white-space: nowrap;
+        overflow-x: scroll;
+        padding-bottom: 0.9rem;
     }
 
     .category {

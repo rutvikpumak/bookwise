@@ -1,7 +1,8 @@
-.App{
+.App {
     background: var(--bg-color);
     min-height: 100vh;
 }
+
 .video-list-container {
     background-color: var(--bg-color);
     display: flex;
@@ -119,6 +120,11 @@
 
 .wd-inherit {
     width: 100%;
+}
+
+.card-description {
+    display: flex;
+    justify-content: space-between;
 }
 
 @media screen and (max-width: 1450px) {

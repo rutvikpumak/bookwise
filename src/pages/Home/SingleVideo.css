@@ -150,11 +150,11 @@
     }
     .footer-btn-list {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
     }
 
     .footer-btn-list div {
-        padding: 0.5rem 0.7rem;
+        padding: 0.5rem;
         font-size: 0.7rem;
         margin-right: 0;
         cursor:default
@@ -162,5 +162,8 @@
 
     .footer-title {
         font-size: 0.8rem;
+    }
+    .footer-btn-list div .fa{
+        margin-right: 0.1rem;
     }
 }

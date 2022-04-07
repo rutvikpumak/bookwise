@@ -6,8 +6,7 @@ import { ACTION_TYPE } from "../../utils";
 import { searchVideos, sortVideos } from "../../services";
 
 export function VideoListing() {
-  const { category, videos, dispatch, sortBy, search, setLoader, drawer } =
-    useData();
+  const { category, videos, dispatch, sortBy, search, setLoader, drawer } = useData();
 
   const sortHandler = (catName) => {
     setLoader(true);

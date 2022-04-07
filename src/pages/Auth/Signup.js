@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Auth.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../context/auth/authContext";
 import { useData } from "../../context/data/videoContext";
 
@@ -15,6 +15,7 @@ export function Signup() {
   const { token, signUpUser } = useAuth();
   const { setLoader } = useData();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const signUpHandler = () => {
     const { email, password, firstName, lastName } = signUpForm;
@@ -33,7 +34,7 @@ export function Signup() {
   if (token) {
     setLoader(() => true);
     setTimeout(() => {
-      navigate("/");
+      navigate(location?.state?.from || "/", { replace: true });
       setLoader(false);
     }, 1000);
   }
@@ -93,25 +94,16 @@ export function Signup() {
           </div>
           <div className="auth-checkbox">
             <label className="select-input">
-              <input
-                type="checkbox"
-                name="light"
-                className="checkbox-input"
-                required
-              />
+              <input type="checkbox" name="light" className="checkbox-input" required />
               <span className="text">I accept all Terms & Conditions</span>
             </label>
           </div>
-          <div
-            className="auth-primary-btn text-center"
-            onClick={() => signUpHandler()}
-          >
+          <div className="auth-primary-btn text-center" onClick={() => signUpHandler()}>
             Create New Account
           </div>
           <Link to="/login">
             <div className="auth-secondary-btn text-center">
-              Already have an account{" "}
-              <i className="fa fa-chevron-right" aria-hidden="true"></i>
+              Already have an account <i className="fa fa-chevron-right" aria-hidden="true"></i>
             </div>
           </Link>
         </div>
