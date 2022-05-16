@@ -53,13 +53,7 @@ export const removePlaylist = (dispatch, id, token) => {
   }
 };
 
-export const addVideoToPlaylist = (
-  dispatch,
-  id,
-  video,
-  token,
-  setMiniLoader
-) => {
+export const addVideoToPlaylist = (dispatch, id, video, token, setMiniLoader) => {
   setMiniLoader(() => true);
 
   try {
@@ -91,15 +85,7 @@ export const addVideoToPlaylist = (
   }
 };
 
-export const removeVideoFromPlaylist = (
-  dispatch,
-  id,
-  videoId,
-  token,
-  setMiniLoader
-) => {
-  setMiniLoader(() => true);
-
+export const removeVideoFromPlaylist = (dispatch, id, videoId, token) => {
   try {
     (async () => {
       const {
@@ -114,9 +100,6 @@ export const removeVideoFromPlaylist = (
           type: ACTION_TYPE.VIDEO_TO_PLAYLIST,
           payload: playlist,
         });
-      setTimeout(() => {
-        setMiniLoader(() => false);
-      }, 200);
     })();
   } catch (error) {
     console.log("Error in remove video to playlist handler", error);
