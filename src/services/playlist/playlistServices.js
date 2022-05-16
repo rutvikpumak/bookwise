@@ -53,13 +53,7 @@ export const removePlaylist = (dispatch, id, token) => {
   }
 };
 
-export const addVideoToPlaylist = (
-  dispatch,
-  id,
-  video,
-  token,
-  setMiniLoader
-) => {
+export const addVideoToPlaylist = (dispatch, id, video, token, setMiniLoader) => {
   setMiniLoader(() => true);
 
   try {
@@ -91,13 +85,7 @@ export const addVideoToPlaylist = (
   }
 };
 
-export const removeVideoFromPlaylist = (
-  dispatch,
-  id,
-  videoId,
-  token,
-  setMiniLoader
-) => {
+export const removeVideoFromPlaylist = (dispatch, id, videoId, token, setMiniLoader) => {
   setMiniLoader(() => true);
 
   try {
